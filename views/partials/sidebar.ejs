@@ -1,0 +1,211 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+     
+      <li class="nav-item">
+        <a class="nav-link" href="/admin">
+          <span class="menu-title">Dashboard</span>
+          <i class="mdi mdi-home menu-icon"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-bs-toggle="collapse"
+          href="#ui-basic"
+          aria-expanded="false"
+          aria-controls="ui-basic"
+        >
+          <span class="menu-title">upload</span>
+          <i class="menu-arrow"></i>
+          <i class="mdi mdi-briefcase-upload menu-icon"></i>
+        </a>
+        <div class="collapse" id="ui-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/upload/jwell">jwell</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/upload/banners">Banners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/upload/newsfeed">newsfeed</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-bs-toggle="collapse"
+          href="#ui-basic-1"
+          aria-expanded="false"
+          aria-controls="ui-basic-1"
+        >
+          <span class="menu-title">View details</span>
+          <i class="menu-arrow"></i>
+          <i class="mdi mdi mdi-eye menu-icon"></i>
+        </a>
+        <div class="collapse" id="ui-basic-1">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/viewdetails/details">jwell</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/viewdetails/bannerdetails"
+              >Banners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/viewdetails/newsdetails"
+                >newsfeed</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="pages/charts/chartjs.html">
+          <span class="menu-title">Statistics</span>
+          <i class="mdi mdi-chart-bar menu-icon"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- partial -->
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title">
+          <span
+            class="page-title-icon bg-gradient-primary text-white me-2"
+          >
+            <i class="mdi mdi-home"></i>
+          </span>
+          Dashboard
+        </h3>
+        <nav aria-label="breadcrumb">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              <span></span>Overview
+              <i
+                class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"
+              ></i>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="row">
+        <div class="col-md-4 stretch-card grid-margin">
+          
+          <div  class="card bg-gradient-danger card-img-holder text-white">
+            <!-- <a href="./pages/forms/Banner/banners-detail.html"  class="fill-div"></a> -->
+            <div class="card-body">
+              <img
+                src="assets/images/dashboard/circle.svg"
+                class="card-img-absolute"
+                alt="circle-image"
+              />
+              <h4 style="color: aliceblue;"class="font-weight-normal mb-3">
+              No Of Users 
+                <i class="mdi mdi-account-outline mdi-24px float-right"></i>
+              </h4>
+              <h2 style="color: aliceblue;" class="mb-5">150</h2>
+              
+            </div>
+          
+          </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+          <div class="card bg-gradient-info card-img-holder text-white">
+            <a style="text-decoration:none" href="./pages/forms/Newsfeed/Newsfeed-detail.html">
+            <div class="card-body">
+              <img
+                src="assets/images/dashboard/circle.svg"
+                class="card-img-absolute"
+                alt="circle-image"
+              />
+              <h4 style="color: aliceblue;" class="font-weight-normal mb-3">
+                Newsfeeds
+                <i
+                  class="mdi mdi-book-open mdi-24px float-right"
+                ></i>
+              </h4>
+              <h2 style="color: aliceblue;" class="mb-5">334</h2>
+              <!-- <h6 class="card-text">Decreased by 10%</h6> -->
+            </div>
+          </a>
+          </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+          <div class="card bg-gradient-info card-img-holder text-white">
+            <a style="text-decoration:none" href="./pages/forms/Banner/banners-detail.html">
+            <div class="card-body">
+              <img
+                src="assets/images/dashboard/circle.svg"
+                class="card-img-absolute"
+                alt="circle-image"
+              />
+              <h4 style="color: aliceblue;" class="font-weight-normal mb-3">
+                Banners
+                <i
+                  class="mdi mdi-panorama mdi-24px float-right"
+                ></i>
+              </h4>
+              <h2 style="color: aliceblue;" class="mb-5">334</h2>
+              <!-- <h6 class="card-text">Decreased by 10%</h6> -->
+            </div>
+          </a>
+          </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+          <div
+            class="card bg-gradient-success card-img-holder text-white"
+          ><a style="text-decoration:none" href="./pages/forms/Jwell/Jwell-detail.html">
+            <div class="card-body">
+              <img
+                src="assets/images/dashboard/circle.svg"
+                class="card-img-absolute"
+                alt="circle-image"
+              />
+              <h4 style="color: aliceblue;" class="font-weight-normal mb-3">
+               Jwells
+                <i class="mdi mdi-diamond mdi-24px float-right"></i>
+              </h4>
+              <h2 style="color: aliceblue;" class="mb-5">741</h2>
+            
+            </div>
+          </div>
+        </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="clearfix">
+                <h4 class="card-title float-left">
+                  Visit And Sales Statistics
+                </h4>
+                <div
+                  id="visit-sale-chart-legend"
+                  class="rounded-legend legend-horizontal legend-top-right float-right"
+                ></div>
+              </div>
+              <canvas id="visit-sale-chart" class="mt-4"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Traffic Sources</h4>
+              <canvas id="traffic-chart"></canvas>
+              <div
+                id="traffic-chart-legend"
+                class="rounded-legend legend-vertical legend-bottom-left pt-4"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
