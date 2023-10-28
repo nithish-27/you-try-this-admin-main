@@ -57,5 +57,17 @@ router.get("/newsdetails", async (req, res) => {
     console.log(error);
   }
 });
-
+router.get("/jwell/edit/:id", async (req, res) => {
+  let id = req.params.id;
+  try {
+    const response = await axios(
+      `https://yts-restapi.onrender.com/purple/v1/jewel/${id}`
+    );
+    const jewellData = response.data.Jewellery_details;
+    console.log(jewellData);
+    res.render("../views/jwell/jwell-edit", { jewellData });
+  } catch (error) {
+    console.log(error);
+  }
+});
 module.exports = router;
