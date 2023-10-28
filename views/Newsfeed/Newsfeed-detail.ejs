@@ -379,8 +379,8 @@
                               
                               <td>  
                                 <a href="../Jwell/jwell-edit.html" class="btn btn-primary btn-sm">Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirm-delete">Delete</a>
-                                <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-delete-label" aria-hidden="true">
+                                <a href="#" onclick="deleteNewsfeed('<%= newsfeed._id %>')" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirm-delete">Delete</a>
+                                <!-- <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-delete-label" aria-hidden="true">
                                   <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -394,11 +394,11 @@
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="button"  onclick="deleteJewell(`<%= newsfeed._id %>`)" class="btn btn-danger btn-danger-1"><%= newsfeed._id %></button>
+                                        <button type="button"  onclick="deleteJewell(``)" class="btn btn-danger btn-danger-1"></button>
                                       </div>
                                     </div>
                                   </div>
-                                </div>
+                                </div> -->
                               </td>
                             </tr>
                           <% }); %>
@@ -438,32 +438,32 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script>
-      function deleteJewell(newsfeedId) {
+      function deleteNewsfeed(newsfeedId) {
         if (confirm(`Are you sure you want to delete this item? ${newsfeedId}`)) {
           // Use the Fetch API to send a PATCH request to the server endpoint.
           console.log(newsfeedId);
-          // fetch(`https://yts-restapi.onrender.com/purple/v1/newsfeed/${newsfeedId}`, {
-          //   method: "DELETE",
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //   },
-          // })
-          //   .then((response) => {
-          //     if (response.ok) {
-          //       // Handle a successful response (e.g., refresh the page).
-          //       window.location.reload();
-          //     } else {
-          //       // Handle errors or show a message to the user.
-          //       console.error("Failed to delete the item.");
-          //     }
-          //   })
-          //   .catch((error) => {
-          //     console.error("Error:", error);
-          //   });
+          fetch(`https://yts-restapi.onrender.com/purple/v1/newsfeed/${newsfeedId}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => {
+              if (response.ok) {
+                // Handle a successful response (e.g., refresh the page).
+                window.location.reload();
+              } else {
+                // Handle errors or show a message to the user.
+                console.error("Failed to delete the item.");
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
         }
       }
     </script>
-    <script>
+    <!-- <script>
     
       $(document).ready(function() {
         $(".btn-danger").click(function() {
@@ -487,7 +487,7 @@
   
     // Call the setupDeleteConfirmation function to initialize the delete confirmation logic
  
-  </script>
+  </script> -->
     <script src="../../../assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
