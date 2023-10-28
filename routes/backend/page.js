@@ -62,9 +62,11 @@ router.get("/jwell/edit/:id", async (req, res) => {
   // Retrieve the ID from the URL parameter and use it to fetch the data to edit.
   try {
     const itemId = req.params.id;
-    
+
     // Send a request to the API to fetch the data by ID
-    const response = await axios.get(`https://yts-restapi.onrender.com/purple/v1/jewel/${itemId}`);
+    const response = await axios.get(
+      `https://yts-restapi.onrender.com/purple/v1/jewel/${itemId}`
+    );
     const jwellData = response.data;
 
     // Render an edit form with the retrieved data.
@@ -79,9 +81,11 @@ router.get("/jwell/edit/:id", async (req, res) => {
 router.get("/banners/edit/:id", async (req, res) => {
   try {
     const itemId = req.params.id;
-    
+
     // Send a request to the API to fetch the data by ID
-    const response = await axios.get(`https://yts-restapi.onrender.com/purple/v1/banner/${itemId}`);
+    const response = await axios.get(
+      `https://yts-restapi.onrender.com/purple/v1/banner/${itemId}`
+    );
     const bannerDatadetails = response.data;
 
     // Render an edit form with the retrieved data.
@@ -91,17 +95,17 @@ router.get("/banners/edit/:id", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
   // Fetch the data for editing and render an edit form.
- 
-  
 });
 
 // Edit Newsfeed Page
-router.get("/newsfeed/edit/:id",async (req, res) => {
+router.get("/newsfeed/edit/:id", async (req, res) => {
   try {
     const itemId = req.params.id;
-    
+
     // Send a request to the API to fetch the data by ID
-    const response = await axios.get(`https://yts-restapi.onrender.com/purple/v1/newsfeed/${itemId}`);
+    const response = await axios.get(
+      `https://yts-restapi.onrender.com/purple/v1/newsfeed/${itemId}`
+    );
     const newsfeedDatadetails = response.data;
 
     // Render an edit form with the retrieved data.
@@ -111,8 +115,6 @@ router.get("/newsfeed/edit/:id",async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
   // Fetch the data for editing and render an edit form.
-
 });
-
 
 module.exports = router;
