@@ -68,7 +68,7 @@ router.get("/jwell/edit/:id", async (req, res) => {
     const jwellData = response.data;
 
     // Render an edit form with the retrieved data.
-    res.render("/admin/viewdetails/Jwell/jwell-edit", { jwellData });
+    res.render("../views/Jwell/jwell-edit", { jwellData });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
@@ -85,7 +85,7 @@ router.get("/banners/edit/:id", async (req, res) => {
     const bannerDatadetails = response.data;
 
     // Render an edit form with the retrieved data.
-    res.render("/admin/viewdetails/Banner/banners-edit", { bannerDatadetails });
+    res.render("../views/Banner/banners-edit", { bannerDatadetails });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
@@ -105,7 +105,7 @@ router.get("/newsfeed/edit/:id",async (req, res) => {
     const newsfeedDatadetails = response.data;
 
     // Render an edit form with the retrieved data.
-    res.render("/admin/viewdetails/Newsfeed/Newsfeed-edit", { newsfeedDatadetails });
+    res.render("../views/Newsfeed/Newsfeed-edit", { newsfeedDatadetails });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
