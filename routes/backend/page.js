@@ -57,17 +57,66 @@ router.get("/newsdetails", async (req, res) => {
     console.log(error);
   }
 });
+// Edit Jwell Page
 router.get("/jwell/edit/:id", async (req, res) => {
-  let id = req.params.id;
+  // Retrieve the ID from the URL parameter and use it to fetch the data to edit.
   try {
-    const response = await axios(
-      `https://yts-restapi.onrender.com/purple/v1/jewel/${id}`
+    const itemId = req.params.id;
+
+    // Send a request to the API to fetch the data by ID
+    const response = await axios.get(
+      `https://yts-restapi.onrender.com/purple/v1/jewel/${itemId}`
     );
-    const jewellData = response.data.Jewellery_details;
-    console.log(jewellData);
-    res.render("../views/jwell/jwell-edit", { jewellData });
+    const jwellData = response.data;
+
+    // Render an edit form with the retrieved data.
+    res.render("/admin/viewdetails/Jwell/jwell-edit", { jwellData });
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
   }
 });
+
+// Edit Banners Page
+router.get("/banners/edit/:id", async (req, res) => {
+  try {
+    const itemId = req.params.id;
+
+    // Send a request to the API to fetch the data by ID
+    const response = await axios.get(
+      `https://yts-restapi.onrender.com/purple/v1/banner/${itemId}`
+    );
+    const bannerDatadetails = response.data;
+
+    // Render an edit form with the retrieved data.
+    res.render("/admin/viewdetails/Banner/banners-edit", { bannerDatadetails });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+  // Fetch the data for editing and render an edit form.
+});
+
+// Edit Newsfeed Page
+router.get("/newsfeed/edit/:id", async (req, res) => {
+  try {
+    const itemId = req.params.id;
+
+    // Send a request to the API to fetch the data by ID
+    const response = await axios.get(
+      `https://yts-restapi.onrender.com/purple/v1/newsfeed/${itemId}`
+    );
+    const newsfeedDatadetails = response.data;
+
+    // Render an edit form with the retrieved data.
+    res.render("/admin/viewdetails/Newsfeed/Newsfeed-edit", {
+      newsfeedDatadetails,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+  // Fetch the data for editing and render an edit form.
+});
+
 module.exports = router;
