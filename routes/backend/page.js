@@ -89,7 +89,7 @@ router.get("/banners/edit/:id", async (req, res) => {
     const bannerDatadetails = response.data;
 
     // Render an edit form with the retrieved data.
-    res.render("../views/Banner/banners-edit", { bannerDatadetails });
+    res.render("/admin/viewdetails/Banner/banners-edit", { bannerDatadetails });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
