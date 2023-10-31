@@ -67,10 +67,14 @@ router.get("/jwell/edit/:id", async (req, res) => {
     const response = await axios.get(
       `https://yts-restapi.onrender.com/purple/v1/jewel/${itemId}`
     );
-    const jwellData = response.data;
-
+    const jwellData = response.data.Jewellery_details;
+    console.log(jwellData);
+    // const escapedOccasion = JSON.stringify(jwellData.occasion).replace(
+    //   /&/g,
+    //   "\\u0026"
+    // );
     // Render an edit form with the retrieved data.
-    res.render("/admin/viewdetails/Jwell/jwell-edit", { jwellData });
+    res.render("../views/Jwell/jwell-edit", { jwellData });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
@@ -86,10 +90,10 @@ router.get("/banners/edit/:id", async (req, res) => {
     const response = await axios.get(
       `https://yts-restapi.onrender.com/purple/v1/banner/${itemId}`
     );
-    const bannerDatadetails = response.data;
+    const bannerDatadetails = response.data.banner_details;
 
     // Render an edit form with the retrieved data.
-    res.render("/admin/viewdetails/Banner/Banners-edit", { bannerDatadetails });
+    res.render("../views/Banner/Banners-edit", { bannerDatadetails });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
@@ -106,10 +110,10 @@ router.get("/newsfeed/edit/:id", async (req, res) => {
     const response = await axios.get(
       `https://yts-restapi.onrender.com/purple/v1/newsfeed/${itemId}`
     );
-    const newsfeedDatadetails = response.data;
+    const newsfeedDatadetails = response.data.newsfeed_details;
 
     // Render an edit form with the retrieved data.
-    res.render("/admin/viewdetails/Newsfeed/Newsfeed-edit", {
+    res.render("../views/Newsfeed/Newsfeed-edit", {
       newsfeedDatadetails,
     });
   } catch (error) {

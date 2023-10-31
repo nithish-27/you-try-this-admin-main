@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href=" /assets/images/favicon.ico" />
   </head>
   <body>
+   
     <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
       <nav
@@ -22,10 +23,10 @@
         <div
           class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
         >
-          <a class="navbar-brand brand-logo" href="index.html"
+          <a class="navbar-brand brand-logo" href=" /index.html"
             ><img src=" /assets/images/logo.svg" alt="logo"
           /></a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"
+          <a class="navbar-brand brand-logo-mini" href=" /index.html"
             ><img src=" /assets/images/logo-mini.svg" alt="logo"
           /></a>
         </div>
@@ -305,11 +306,11 @@
                     <a class="nav-link" href="/admin/viewdetails/details">jwell</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/admin/upload/banners"
+                    <a class="nav-link" href="./pages/forms/Banner/banners-detail.html"
                     >Banners</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/admin/upload/newsfeed"
+                    <a class="nav-link" href="./pages/forms/Newsfeed/Newsfeed-detail.html"
                       >newsfeed</a
                     >
                   </li>
@@ -339,40 +340,35 @@
                   <div class="card-body">
                  
                    
-                    <h4 class="card-title">Add new newsfeed</h4>
+                    <h4 class="card-title">Update here</h4>
                   
-                    <form class="forms-sample" >
+                    <form class="forms-sample" enctype="multipart/form-data" action="http://localhost:3001/purple/v1/newsfeed/" method="post">
                     
                       
                       <div class="form-group row">
                         <label for="title" class="col-sm-3 col-form-label">Title:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="off" placeholder="Title">
+                          <input type="text" name="title" class="form-control" id="off" placeholder="Title">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="description" class="col-sm-3 col-form-label">description:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="description" placeholder="Mobile number">
+                          <input type="text"  name="description" class="form-control" id="description" placeholder="Mobile number">
                         </div>
                       </div>
                     
                       <div class="form-group row">
-                        <label for="img" class="col-sm-3 col-form-label">Image url:</label>
+                        <label for="img" class="col-sm-3 col-form-label">Image:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="img" placeholder="image url">
-                        </div>
+                          <input type="file" name="img" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
+                          <img src="" id="imagePreview" class="img-fluid mt-3">
                       </div>
-                      <div class="form-group row">
-                        <label for="date" class="col-sm-3 col-form-label">date:</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" id="date" placeholder="dd/mm/yyyy">
-                        </div>
                       </div>
+                     
                       
                       
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                      <button type="reset" class="btn btn-light">Cancel</button>
                     </form>
                   </div>
                 </div>
@@ -388,6 +384,29 @@
     <!-- plugins:js -->
     <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
+    <script>
+      function updateImagePreview(input) {
+        var imagePreview = document.getElementById("imagePreview");
+        
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    document.getElementById("imageUpload").addEventListener("click", function () {
+        // When the input is clicked, reset it to allow selecting the same file again
+        this.value = null;
+    });
+    
+    
+    
+    
+    
+    </script>
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->

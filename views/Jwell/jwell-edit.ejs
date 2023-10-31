@@ -8,921 +8,31 @@
 
     <link rel="stylesheet" href=" /assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href=" /assets/vendors/css/vendor.bundle.base.css">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <link rel="stylesheet" href=" /assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href=" /assets/images/favicon.ico" />
-  </head>
-  <body>
+    <style>
+      .image-container {
+        position: relative;
+        display: inline-block;
+      }
     
-    <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-      <nav
-        class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"
-      >
-        <div
-          class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
-        >
-          <a class="navbar-brand brand-logo" href=" /index.html"
-            ><img src=" /assets/images/logo.svg" alt="logo"
-          /></a>
-          <a class="navbar-brand brand-logo-mini" href=" /index.html"
-            ><img src=" /assets/images/logo-mini.svg" alt="logo"
-          /></a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-stretch">
-          <button
-            class="navbar-toggler navbar-toggler align-self-center"
-            type="button"
-            data-toggle="minimize"
-          >
-            <span class="mdi mdi-menu"></span>
-          </button>
-          <div class="search-field d-none d-md-block">
-            <form class="d-flex align-items-center h-100" action="#">
-              <div class="input-group">
-                <div class="input-group-prepend bg-transparent">
-                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                </div>
-                <input
-                  type="text"
-                  class="form-control bg-transparent border-0"
-                  placeholder="Search projects"
-                />
-              </div>
-            </form>
-          </div>
-          <ul class="navbar-nav navbar-nav-right">
-            
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link count-indicator dropdown-toggle"
-                id="messageDropdown"
-                href="#"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="mdi mdi-email-outline"></i>
-                <span class="count-symbol bg-warning"></span>
-              </a>
-              <div
-                class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                aria-labelledby="messageDropdown"
-              >
-                <h6 class="p-3 mb-0">Messages</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img
-                      src=" /assets/images/faces/face4.jpg"
-                      alt="image"
-                      class="profile-pic"
-                    />
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6
-                      class="preview-subject ellipsis mb-1 font-weight-normal"
-                    >
-                      Mark send you a message
-                    </h6>
-                    <p class="text-gray mb-0">1 Minutes ago</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img
-                      src=" /assets/images/faces/face2.jpg"
-                      alt="image"
-                      class="profile-pic"
-                    />
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6
-                      class="preview-subject ellipsis mb-1 font-weight-normal"
-                    >
-                      Cregh send you a message
-                    </h6>
-                    <p class="text-gray mb-0">15 Minutes ago</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img
-                      src=" /assets/images/faces/face3.jpg"
-                      alt="image"
-                      class="profile-pic"
-                    />
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6
-                      class="preview-subject ellipsis mb-1 font-weight-normal"
-                    >
-                      Profile picture updated
-                    </h6>
-                    <p class="text-gray mb-0">18 Minutes ago</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="p-3 mb-0 text-center">4 new messages</h6>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link count-indicator dropdown-toggle"
-                id="notificationDropdown"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
-                <i class="mdi mdi-bell-outline"></i>
-                <span class="count-symbol bg-danger"></span>
-              </a>
-              <div
-                class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                aria-labelledby="notificationDropdown"
-              >
-                <h6 class="p-3 mb-0">Notifications</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="mdi mdi-calendar"></i>
-                    </div>
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6 class="preview-subject font-weight-normal mb-1">
-                      Event today
-                    </h6>
-                    <p class="text-gray ellipsis mb-0">
-                      Just a reminder that you have an event today
-                    </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="mdi mdi-settings"></i>
-                    </div>
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6 class="preview-subject font-weight-normal mb-1">
-                      Settings
-                    </h6>
-                    <p class="text-gray ellipsis mb-0">Update dashboard</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="mdi mdi-link-variant"></i>
-                    </div>
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6 class="preview-subject font-weight-normal mb-1">
-                      Launch Admin
-                    </h6>
-                    <p class="text-gray ellipsis mb-0">New admin wow!</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="p-3 mb-0 text-center">See all notifications</h6>
-              </div>
-            </li>
-            <li class="nav-item nav-profile dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="profileDropdown"
-                href="#"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <div class="nav-profile-img">
-                  <img src=" /assets/images/faces/face1.jpg" alt="image" />
-                  <span class="availability-status online"></span>
-                </div>
-                <div class="nav-profile-text">
-                  <p class="mb-1 text-black">David Greymaax</p>
-                </div>
-              </a>
-              <div
-                class="dropdown-menu navbar-dropdown"
-                aria-labelledby="profileDropdown"
-              >
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-cached me-2 text-success"></i> Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout
-                </a>
-              </div>
-            </li>
-            <li class="nav-item d-none d-lg-block full-screen-link">
-              <a class="nav-link">
-                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-              </a>
-            </li>
-          </ul>
-          <button
-            class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-            type="button"
-            data-toggle="offcanvas"
-          >
-            <span class="mdi mdi-menu"></span>
-          </button>
-        </div>
-      </nav>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-           
-            <li class="nav-item">
-              <a class="nav-link" href=" /index.html">
-                <span class="menu-title">Dashboard</span>
-                <i class="mdi mdi-home menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                data-bs-toggle="collapse"
-                href="#ui-basic"
-                aria-expanded="false"
-                aria-controls="ui-basic"
-              >
-                <span class="menu-title">upload</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-briefcase-upload menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Jwell/jwell.html">jwell</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Banner/banners.html"
-                    >Banners</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Newsfeed/newsfeed.html"
-                      >newsfeed</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                data-bs-toggle="collapse"
-                href="#ui-basic-1"
-                aria-expanded="false"
-                aria-controls="ui-basic-1"
-              >
-                <span class="menu-title">View details</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi mdi-eye menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic-1">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Jwell/Jwell-detail.html">jwell</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Banner/banners-detail.html"
-                    >Banners</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Newsfeed/Newsfeed-detail.html"
-                      >newsfeed</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="./../../charts/chartjs.html">
-                <span class="menu-title">Statistics</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <!-- partial -->
-      
-        <div class="main-panel ">
-            
-          <div class="content-wrapper ">
-           
-           
-            <div class="row justify-content-center">
-                
-              <div class="col-md-6 grid-margin stretch-card ">
-                <div class="card">
-                  <div class="card-body">
-                 
-                   
-                    <h4 class="card-title">Add new jwell</h4>
-                  
-                    <form class="forms-sample" >
-                      <div class="form-group row">
-                        <label for="name" class="col-sm-3 col-form-label">Name:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="wewd" class="form-control" id="name" placeholder="name">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="description" class="col-sm-3 col-form-label">description:</label>
-                        <div class="col-sm-9">
-                          <input type="text" value="wewd" class="form-control" id="description" placeholder="description">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                      <label class="col-sm-3 " for="dropdown">Select category:</label>
-                      <div class="col-sm-9">
-                      <select   class="form-control dropdown-toggle" id="dropdown">
-                        <option value="neckleace">neckleace</option>
-                        <option value="rings">rings</option>
-                        <option value="bangles">bangles</option>
-                        <option value="chain">chain</option>
-                      </select>
-                    </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 " for="dropdowng">Select gender:</label>
-                        <div class="col-sm-9">
-                        <select  value="kjnajc" type="text" class="form-control  dropdown-toggle" id="dropdowng">
-                          <option value="male">male</option>
-                          <option value="women">women</option>
-                         
-                        </select>
-                      </div>
-                      </div>
-                      
-                      <div class="form-group row">
-                        <label for="amount" class="col-sm-3 col-form-label">amount:</label>
-                        <div class="col-sm-9">
-                          <input type="number"  value="645" class="form-control" id="amount" placeholder="amount">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="rating" class="col-sm-3 col-form-label">rating:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="rating" placeholder="Mobile number">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="ratingo" class="col-sm-3 col-form-label">rating out of:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="ratingo" placeholder="Mobile number">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="img" class="col-sm-3 col-form-label">Image url:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img" placeholder="url">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="img1" class="col-sm-3 col-form-label">Image url 1:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img1" placeholder="url 1">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="img2" class="col-sm-3 col-form-label">Image url 2:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img2" placeholder="url 2">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="img3" class="col-sm-3 col-form-label">Image url 3:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img3" placeholder="url 3">
-                        </div>
-                      </div>
-                      
-                      
-                      <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
-                      <button type="reset" class="btn btn-light">Cancel</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-             
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script>
-      document.getElementById("dropdown").value = "chain";
-    </script>
-    <script>
-      document.getElementById("dropdowng").value = "male";
-    </script>
-    <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src=" /assets/js/off-canvas.js"></script>
-    <script src=" /assets/js/hoverable-collapse.js"></script>
-    <script src=" /assets/js/misc.js"></script><!DOCTYPE html>
-<html lang="en">
-  <head>
-  
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
-
-    <link rel="stylesheet" href=" /assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href=" /assets/vendors/css/vendor.bundle.base.css">
+      .delete-icon {
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        color: red;
+        cursor: pointer;
+        background-color: white;
+        border-radius: 50%;
+      }
    
-    <link rel="stylesheet" href=" /assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href=" /assets/images/favicon.ico" />
+    </style>
   </head>
   <body>
-    
-    <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-      <nav
-        class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"
-      >
-        <div
-          class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
-        >
-          <a class="navbar-brand brand-logo" href=" /index.html"
-            ><img src=" /assets/images/logo.svg" alt="logo"
-          /></a>
-          <a class="navbar-brand brand-logo-mini" href=" /index.html"
-            ><img src=" /assets/images/logo-mini.svg" alt="logo"
-          /></a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-stretch">
-          <button
-            class="navbar-toggler navbar-toggler align-self-center"
-            type="button"
-            data-toggle="minimize"
-          >
-            <span class="mdi mdi-menu"></span>
-          </button>
-          <div class="search-field d-none d-md-block">
-            <form class="d-flex align-items-center h-100" action="#">
-              <div class="input-group">
-                <div class="input-group-prepend bg-transparent">
-                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                </div>
-                <input
-                  type="text"
-                  class="form-control bg-transparent border-0"
-                  placeholder="Search projects"
-                />
-              </div>
-            </form>
-          </div>
-          <ul class="navbar-nav navbar-nav-right">
-            
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link count-indicator dropdown-toggle"
-                id="messageDropdown"
-                href="#"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="mdi mdi-email-outline"></i>
-                <span class="count-symbol bg-warning"></span>
-              </a>
-              <div
-                class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                aria-labelledby="messageDropdown"
-              >
-                <h6 class="p-3 mb-0">Messages</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img
-                      src=" /assets/images/faces/face4.jpg"
-                      alt="image"
-                      class="profile-pic"
-                    />
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6
-                      class="preview-subject ellipsis mb-1 font-weight-normal"
-                    >
-                      Mark send you a message
-                    </h6>
-                    <p class="text-gray mb-0">1 Minutes ago</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img
-                      src=" /assets/images/faces/face2.jpg"
-                      alt="image"
-                      class="profile-pic"
-                    />
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6
-                      class="preview-subject ellipsis mb-1 font-weight-normal"
-                    >
-                      Cregh send you a message
-                    </h6>
-                    <p class="text-gray mb-0">15 Minutes ago</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img
-                      src=" /assets/images/faces/face3.jpg"
-                      alt="image"
-                      class="profile-pic"
-                    />
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6
-                      class="preview-subject ellipsis mb-1 font-weight-normal"
-                    >
-                      Profile picture updated
-                    </h6>
-                    <p class="text-gray mb-0">18 Minutes ago</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="p-3 mb-0 text-center">4 new messages</h6>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link count-indicator dropdown-toggle"
-                id="notificationDropdown"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
-                <i class="mdi mdi-bell-outline"></i>
-                <span class="count-symbol bg-danger"></span>
-              </a>
-              <div
-                class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                aria-labelledby="notificationDropdown"
-              >
-                <h6 class="p-3 mb-0">Notifications</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="mdi mdi-calendar"></i>
-                    </div>
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6 class="preview-subject font-weight-normal mb-1">
-                      Event today
-                    </h6>
-                    <p class="text-gray ellipsis mb-0">
-                      Just a reminder that you have an event today
-                    </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="mdi mdi-settings"></i>
-                    </div>
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6 class="preview-subject font-weight-normal mb-1">
-                      Settings
-                    </h6>
-                    <p class="text-gray ellipsis mb-0">Update dashboard</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="mdi mdi-link-variant"></i>
-                    </div>
-                  </div>
-                  <div
-                    class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                  >
-                    <h6 class="preview-subject font-weight-normal mb-1">
-                      Launch Admin
-                    </h6>
-                    <p class="text-gray ellipsis mb-0">New admin wow!</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="p-3 mb-0 text-center">See all notifications</h6>
-              </div>
-            </li>
-            <li class="nav-item nav-profile dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="profileDropdown"
-                href="#"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <div class="nav-profile-img">
-                  <img src=" /assets/images/faces/face1.jpg" alt="image" />
-                  <span class="availability-status online"></span>
-                </div>
-                <div class="nav-profile-text">
-                  <p class="mb-1 text-black">David Greymaax</p>
-                </div>
-              </a>
-              <div
-                class="dropdown-menu navbar-dropdown"
-                aria-labelledby="profileDropdown"
-              >
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-cached me-2 text-success"></i> Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout
-                </a>
-              </div>
-            </li>
-            <li class="nav-item d-none d-lg-block full-screen-link">
-              <a class="nav-link">
-                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-              </a>
-            </li>
-          </ul>
-          <button
-            class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-            type="button"
-            data-toggle="offcanvas"
-          >
-            <span class="mdi mdi-menu"></span>
-          </button>
-        </div>
-      </nav>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-           
-            <li class="nav-item">
-              <a class="nav-link" href=" /index.html">
-                <span class="menu-title">Dashboard</span>
-                <i class="mdi mdi-home menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                data-bs-toggle="collapse"
-                href="#ui-basic"
-                aria-expanded="false"
-                aria-controls="ui-basic"
-              >
-                <span class="menu-title">upload</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-briefcase-upload menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Jwell/jwell.html">jwell</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Banner/banners.html"
-                    >Banners</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Newsfeed/newsfeed.html"
-                      >newsfeed</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                data-bs-toggle="collapse"
-                href="#ui-basic-1"
-                aria-expanded="false"
-                aria-controls="ui-basic-1"
-              >
-                <span class="menu-title">View details</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi mdi-eye menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic-1">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Jwell/Jwell-detail.html">jwell</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Banner/banners-detail.html"
-                    >Banners</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Newsfeed/Newsfeed-detail.html"
-                      >newsfeed</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="./../../charts/chartjs.html">
-                <span class="menu-title">Statistics</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <!-- partial -->
-      
-        <div class="main-panel ">
-            
-          <div class="content-wrapper ">
-           
-           
-            <div class="row justify-content-center">
-                
-              <div class="col-md-6 grid-margin stretch-card ">
-                <div class="card">
-                  <div class="card-body">
-                 
-                   
-                    <h4 class="card-title">Add new jwell</h4>
-                  
-                    <form class="forms-sample" >
-                      <div class="form-group row">
-                        <label for="name" class="col-sm-3 col-form-label">Name:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="wewd" class="form-control" id="name" placeholder="name">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="description" class="col-sm-3 col-form-label">description:</label>
-                        <div class="col-sm-9">
-                          <input type="text" value="wewd" class="form-control" id="description" placeholder="description">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                      <label class="col-sm-3 " for="dropdown">Select category:</label>
-                      <div class="col-sm-9">
-                      <select   class="form-control dropdown-toggle" id="dropdown">
-                        <option value="neckleace">neckleace</option>
-                        <option value="rings">rings</option>
-                        <option value="bangles">bangles</option>
-                        <option value="chain">chain</option>
-                      </select>
-                    </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 " for="dropdowng">Select gender:</label>
-                        <div class="col-sm-9">
-                        <select  value="kjnajc" type="text" class="form-control  dropdown-toggle" id="dropdowng">
-                          <option value="male">male</option>
-                          <option value="women">women</option>
-                         
-                        </select>
-                      </div>
-                      </div>
-                      
-                      <div class="form-group row">
-                        <label for="amount" class="col-sm-3 col-form-label">amount:</label>
-                        <div class="col-sm-9">
-                          <input type="number"  value="645" class="form-control" id="amount" placeholder="amount">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="rating" class="col-sm-3 col-form-label">rating:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="rating" placeholder="Mobile number">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="ratingo" class="col-sm-3 col-form-label">rating out of:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="ratingo" placeholder="Mobile number">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="img" class="col-sm-3 col-form-label">Image url:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img" placeholder="url">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="img1" class="col-sm-3 col-form-label">Image url 1:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img1" placeholder="url 1">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="img2" class="col-sm-3 col-form-label">Image url 2:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img2" placeholder="url 2">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="img3" class="col-sm-3 col-form-label">Image url 3:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img3" placeholder="url 3">
-                        </div>
-                      </div>
-                      
-                      
-                      <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
-                      <button type="reset" class="btn btn-light">Cancel</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-             
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script>
-      document.getElementById("dropdown").value = "chain";
-    </script>
-    <script>
-      document.getElementById("dropdowng").value = "male";
-    </script>
-    <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src=" /assets/js/off-canvas.js"></script>
-    <script src=" /assets/js/hoverable-collapse.js"></script>
-    <script src=" /assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src=" /assets/js/file-upload.js"></script>
-    <!-- End custom js for this page -->
-  </body>
-</html><!DOCTYPE html>
-<html lang="en">
-  <head>
-  
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
-
-    <link rel="stylesheet" href=" /assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href=" /assets/vendors/css/vendor.bundle.base.css">
    
-    <link rel="stylesheet" href=" /assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href=" /assets/images/favicon.ico" />
-  </head>
-  <body>
-    
     <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
       <nav
@@ -1182,14 +292,14 @@
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Jwell/jwell.html">jwell</a>
+                    <a class="nav-link" href="/admin/upload/jwell">jwell</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Banner/banners.html"
+                    <a class="nav-link" href="/admin/upload/banners"
                     >Banners</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./pages/forms/Newsfeed/newsfeed.html"
+                    <a class="nav-link" href="/admin/upload/newsfeed"
                       >newsfeed</a
                     >
                   </li>
@@ -1248,88 +358,149 @@
                   <div class="card-body">
                  
                    
-                    <h4 class="card-title">Add new jwell</h4>
+                    <h4 class="card-title">You can edit here</h4>
                   
                     <form class="forms-sample" >
                       <div class="form-group row">
-                        <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                        <label for="name" class="col-sm-3 col-form-label">Title:</label>
                         <div class="col-sm-9">
-                          <input type="text"  value="wewd" class="form-control" id="name" placeholder="name">
+                          <input type="text" value="<%= jwellData.title %>" class="form-control" id="name" placeholder="name">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="description" class="col-sm-3 col-form-label">description:</label>
                         <div class="col-sm-9">
-                          <input type="text" value="wewd" class="form-control" id="description" placeholder="description">
+                          <input type="text" class="form-control" value="<%= jwellData.description %>" id="description" placeholder="description">
                         </div>
                       </div>
                       <div class="form-group row">
-                      <label class="col-sm-3 " for="dropdown">Select category:</label>
+                      <label class="col-sm-3 " for="dropdown">Select jwell type:</label>
                       <div class="col-sm-9">
-                      <select   class="form-control dropdown-toggle" id="dropdown">
+                      <select class="form-control dropdown-toggle" id="dropdown">
                         <option value="neckleace">neckleace</option>
                         <option value="rings">rings</option>
                         <option value="bangles">bangles</option>
                         <option value="chain">chain</option>
+                        <option value="bracelet">bracelet</option>
+                        <option value="earrings">Earrings</option>
+                       
                       </select>
                     </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-3 " for="dropdowng">Select gender:</label>
                         <div class="col-sm-9">
-                        <select  value="kjnajc" type="text" class="form-control  dropdown-toggle" id="dropdowng">
-                          <option value="male">male</option>
-                          <option value="women">women</option>
-                         
+                          <select class="form-control dropdown-toggle" id="dropdowng">
+                            <option value="men">Male</option>
+                            <option value="women">Female</option>
+                            <option value="other">Other</option>
                         </select>
                       </div>
                       </div>
-                      
+                      <div class="form-group row">
+                        <label class="col-sm-3" for="dropdowng">Select occasion</label>
+                        <div class="col-sm-9">
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" value="casual" id="casualCheckbox"> Casual
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" value="function" id="functionCheckbox"> Function
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" value="Parties" id="partiesCheckbox"> Parties
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" value="Work" id="workCheckbox"> Work
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-3" for="dropdowng">Select faceType</label>
+                        <div class="col-sm-9">
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" value="heart" id="heartCheckbox"> heart
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" value="square" id="squareCheckbox"> square
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" value="oval" id="ovalCheckbox"> oval
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" value="round" id="roundCheckbox"> round
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                   
+                    
                       <div class="form-group row">
                         <label for="amount" class="col-sm-3 col-form-label">amount:</label>
                         <div class="col-sm-9">
-                          <input type="number"  value="645" class="form-control" id="amount" placeholder="amount">
+                          <input type="number" value="<%= jwellData.price %>"class="form-control" id="amount" placeholder="amount">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="rating" class="col-sm-3 col-form-label">rating:</label>
+                        <label for="rating" class="col-sm-3 col-form-label">likes:</label>
                         <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="rating" placeholder="Mobile number">
+                          <input type="text" value="<%= jwellData.jewel_like %>"class="form-control" id="rating" placeholder="Mobile number">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="ratingo" class="col-sm-3 col-form-label">rating out of:</label>
+                        <label for="ratingo" class="col-sm-3 col-form-label">weight:</label>
                         <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="ratingo" placeholder="Mobile number">
+                          <input type="text" class="form-control" value="<%= jwellData.weight %>"id="ratingo" placeholder="Mobile number">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="img" class="col-sm-3 col-form-label">Image url:</label>
+                        <label for="img" class="col-sm-3 col-form-label">karat:</label>
                         <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img" placeholder="url">
+                          <input type="text" class="form-control" value="<%= jwellData.karat %>"id="img" placeholder="url">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="img1" class="col-sm-3 col-form-label">Image url 1:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img1" placeholder="url 1">
+                        <label for="img1" class="col-sm-3 col-form-label">Overlay Image:</label>
+          
+                          <div class="col-sm-9">
+                            <input type="file" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
+                            <img src="<%= jwellData.overlay %>" id="imagePreview" class="img-fluid mt-3">
                         </div>
+                        
+                       
                       </div>
                       <div class="form-group row">
-                        <label for="img2" class="col-sm-3 col-form-label">Image url 2:</label>
+                        <label for="img2" class="col-sm-3 col-form-label">Images:</label>
                         <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img2" placeholder="url 2">
+                          <input type="file" id="imageInput" class="form-control-file" accept="image/*" multiple>
+                                                    <div class="preview-container"></div>
+                          <% jwellData.image.forEach(function(item) { %>
+                            <div class="image-container">
+                              <img src="<%= item %>" class="img-fluid mt-3">
+                              <i class="fa fa-trash delete-icon" onclick="deleteImage(this)"></i>
+                            </div>
+                          <% }); %>
+                          
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label for="img3" class="col-sm-3 col-form-label">Image url 3:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img3" placeholder="url 3">
-                        </div>
-                      </div>
+                    
                       
                       
-                      <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
+                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
                       <button type="reset" class="btn btn-light">Cancel</button>
                     </form>
                   </div>
@@ -1344,484 +515,233 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script>
-      document.getElementById("dropdown").value = "chain";
-    </script>
-    <script>
-      document.getElementById("dropdowng").value = "male";
-    </script>
     <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
+    
+    <script>// Initialize an array to store image URLs
+      var imageUrls = [
+        // List of image URLs from your server
+        <% jwellData.image.forEach(function(item) { %>
+          '<%= item %>',
+        <% }); %>
+      ];
+      
+      function deleteImage(deleteButton) {
+        var imageContainer = deleteButton.parentNode; // Get the parent container of the image and delete button
+        var image = imageContainer.querySelector('img'); // Get the image element
+        var imageUrl = image.getAttribute('src'); // Get the URL of the image
+      
+        // Send the imageUrl to the server for deletion or update
+        // For example, using an AJAX request to notify the server to delete the image
+      
+        // Remove the image container from the DOM
+        imageContainer.remove();
+      
+        // Remove the deleted image URL from the imageUrls array
+        var index = imageUrls.indexOf(imageUrl);
+        if (index > -1) {
+          imageUrls.splice(index, 1);
+        }
+      }
+      
+      // You can access the updated imageUrls array to get the remaining image URLs
+      console.log(imageUrls);
+      </script>
+       <script>
+    $(document).ready(function() {
+      // Listen for file input change
+      $("#imageInput").on('change', function() {
+          var previewContainer = $('.preview-container');
+          previewContainer.empty(); // Clear previous previews
+  
+          var files = $(this)[0].files;
+  
+          for (var i = 0; i <files.length; i++) {
+              var file = files[i];
+              var reader = new FileReader();
+  
+              reader.onload = function(e) {
+                  var image = '<img src="' + e.target.result + '" class="img-fluid mt-3">';
+                  previewContainer.append(image);
+              };
+  
+              reader.readAsDataURL(file);
+          }
+      });
+  
+      // You can handle form submission here
+      $("#imageForm").submit(function(event) {
+          event.preventDefault();
+          // Perform form submission or other actions here
+      });
+  });
+  </script>
+    <script>
+      // Initialize an empty array to store the selected values
+      var selectedValues = [];
+    
+      // Add change event listeners to the checkboxes
+      document.getElementById("heartCheckbox").addEventListener("change", updateSelectedValues);
+      document.getElementById("squareCheckbox").addEventListener("change", updateSelectedValues);
+      document.getElementById("ovalCheckbox").addEventListener("change", updateSelectedValues);
+      document.getElementById("roundCheckbox").addEventListener("change", updateSelectedValues);
+    
+      // Function to update the selectedValues array when checkboxes change
+      function updateSelectedValues() {
+        selectedValues = [];
+        if (document.getElementById("heartCheckbox").checked) {
+          selectedValues.push("heart");
+        }
+        if (document.getElementById("squareCheckbox").checked) {
+          selectedValues.push("square");
+        }
+        if (document.getElementById("ovalCheckbox").checked) {
+          selectedValues.push("oval");
+        }
+        if (document.getElementById("roundCheckbox").checked) {
+          selectedValues.push("round");
+        }
+    
+        // You can now access the selected values in the 'selectedValues' array
+        console.log(selectedValues);
+      }
+      var faceArray = [];
+     <% jwellData.faceType.forEach(function(item) { %>
+    faceArray.push('<%= item %>');
+  <% }); %>
+      // Assuming you have received 'occasionArray' from the server
+    
+    
+      // Pre-select checkboxes based on the received 'occasionArray'
+      faceArray.forEach(function(item) {
+        document.getElementById(item + "Checkbox").checked = true;
+      });
+    
+      // Update 'selectedValues' based on the pre-selected checkboxes
+      updateSelectedValues();
+    </script>
+    <script>
+    function updateImagePreview(input) {
+      var imagePreview = document.getElementById("imagePreview");
+      
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              imagePreview.src = e.target.result;
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+  
+  document.getElementById("imageUpload").addEventListener("click", function () {
+      // When the input is clicked, reset it to allow selecting the same file again
+      this.value = null;
+  });
+  
+  
+  
+  
+  
+  </script>
+    <script>
+      // Initialize an empty array to store the selected values
+      var selectedValues = [];
+    
+      // Add change event listeners to the checkboxes
+      document.getElementById("casualCheckbox").addEventListener("change", updateSelectedValues);
+      document.getElementById("functionCheckbox").addEventListener("change", updateSelectedValues);
+      document.getElementById("partiesCheckbox").addEventListener("change", updateSelectedValues);
+      document.getElementById("workCheckbox").addEventListener("change", updateSelectedValues);
+    
+      // Function to update the selectedValues array when checkboxes change
+      function updateSelectedValues() {
+        selectedValues = [];
+        if (document.getElementById("casualCheckbox").checked) {
+          selectedValues.push("casual");
+        }
+        if (document.getElementById("functionCheckbox").checked) {
+          selectedValues.push("function");
+        }
+        if (document.getElementById("partiesCheckbox").checked) {
+          selectedValues.push("Parties");
+        }
+        if (document.getElementById("workCheckbox").checked) {
+          selectedValues.push("Work");
+        }
+    
+        // You can now access the selected values in the 'selectedValues' array
+        console.log(selectedValues);
+      }
+     
+     var occasionArray = [];
+     <% jwellData.occasion.forEach(function(item) { %>
+    occasionArray.push('<%= item %>');
+  <% }); %>
+      
+      // var occasionArray = ``;
+
+      // Pre-select checkboxes based on the received 'occasionArray'
+      occasionArray.forEach(function(item) {
+        document.getElementById(item + "Checkbox").checked = true;
+      });
+    
+      // Update 'selectedValues' based on the pre-selected checkboxes
+      updateSelectedValues();
+    </script>
+    
+    <script>
+      var selectedOption = "<%= jwellData.gender %>"; // Replace with the actual value from the server
+
+// Get the select element
+var dropdown = document.getElementById("dropdowng");
+
+// Loop through the options and set the selected option based on the received value
+for (var i = 0; i < dropdown.options.length; i++) {
+    if (dropdown.options[i].value === selectedOption) {
+        dropdown.selectedIndex = i;
+        break;
+    }
+}
+    </script>
+      <script>
+        var selectedOption = "<%= jwellData.jewel_type %>"; // Replace with the actual value from the server
+  
+  // Get the select element
+  var dropdown = document.getElementById("dropdown");
+  
+  // Loop through the options and set the selected option based on the received value
+  for (var i = 0; i < dropdown.options.length; i++) {
+      if (dropdown.options[i].value === selectedOption) {
+          dropdown.selectedIndex = i;
+          break;
+      }
+  }
+      </script>
+    <script>
+   function updateimageIn(input) {
+    var imageIn = document.getElementById("imagePreview");
+    
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+document.getElementById("imageUpload").addEventListener("click", function () {
+    // When the input is clicked, reset it to allow selecting the same file again
+    this.value = null;
+});
+
+  </script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src=" /assets/js/off-canvas.js"></script><!DOCTYPE html>
-    <html lang="en">
-      <head>
-      
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Purple Admin</title>
-    
-        <link rel="stylesheet" href=" /assets/vendors/mdi/css/materialdesignicons.min.css">
-        <link rel="stylesheet" href=" /assets/vendors/css/vendor.bundle.base.css">
-       
-        <link rel="stylesheet" href=" /assets/css/style.css">
-        <!-- End layout styles -->
-        <link rel="shortcut icon" href=" /assets/images/favicon.ico" />
-      </head>
-      <body>
-        
-        <div class="container-scroller">
-          <!-- partial:partials/_navbar.html -->
-          <nav
-            class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"
-          >
-            <div
-              class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
-            >
-              <a class="navbar-brand brand-logo" href=" /index.html"
-                ><img src=" /assets/images/logo.svg" alt="logo"
-              /></a>
-              <a class="navbar-brand brand-logo-mini" href=" /index.html"
-                ><img src=" /assets/images/logo-mini.svg" alt="logo"
-              /></a>
-            </div>
-            <div class="navbar-menu-wrapper d-flex align-items-stretch">
-              <button
-                class="navbar-toggler navbar-toggler align-self-center"
-                type="button"
-                data-toggle="minimize"
-              >
-                <span class="mdi mdi-menu"></span>
-              </button>
-              <div class="search-field d-none d-md-block">
-                <form class="d-flex align-items-center h-100" action="#">
-                  <div class="input-group">
-                    <div class="input-group-prepend bg-transparent">
-                      <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                    </div>
-                    <input
-                      type="text"
-                      class="form-control bg-transparent border-0"
-                      placeholder="Search projects"
-                    />
-                  </div>
-                </form>
-              </div>
-              <ul class="navbar-nav navbar-nav-right">
-                
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link count-indicator dropdown-toggle"
-                    id="messageDropdown"
-                    href="#"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i class="mdi mdi-email-outline"></i>
-                    <span class="count-symbol bg-warning"></span>
-                  </a>
-                  <div
-                    class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                    aria-labelledby="messageDropdown"
-                  >
-                    <h6 class="p-3 mb-0">Messages</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                        <img
-                          src=" /assets/images/faces/face4.jpg"
-                          alt="image"
-                          class="profile-pic"
-                        />
-                      </div>
-                      <div
-                        class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                      >
-                        <h6
-                          class="preview-subject ellipsis mb-1 font-weight-normal"
-                        >
-                          Mark send you a message
-                        </h6>
-                        <p class="text-gray mb-0">1 Minutes ago</p>
-                      </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                        <img
-                          src=" /assets/images/faces/face2.jpg"
-                          alt="image"
-                          class="profile-pic"
-                        />
-                      </div>
-                      <div
-                        class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                      >
-                        <h6
-                          class="preview-subject ellipsis mb-1 font-weight-normal"
-                        >
-                          Cregh send you a message
-                        </h6>
-                        <p class="text-gray mb-0">15 Minutes ago</p>
-                      </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                        <img
-                          src=" /assets/images/faces/face3.jpg"
-                          alt="image"
-                          class="profile-pic"
-                        />
-                      </div>
-                      <div
-                        class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                      >
-                        <h6
-                          class="preview-subject ellipsis mb-1 font-weight-normal"
-                        >
-                          Profile picture updated
-                        </h6>
-                        <p class="text-gray mb-0">18 Minutes ago</p>
-                      </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="p-3 mb-0 text-center">4 new messages</h6>
-                  </div>
-                </li>
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link count-indicator dropdown-toggle"
-                    id="notificationDropdown"
-                    href="#"
-                    data-bs-toggle="dropdown"
-                  >
-                    <i class="mdi mdi-bell-outline"></i>
-                    <span class="count-symbol bg-danger"></span>
-                  </a>
-                  <div
-                    class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                    aria-labelledby="notificationDropdown"
-                  >
-                    <h6 class="p-3 mb-0">Notifications</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                        <div class="preview-icon bg-success">
-                          <i class="mdi mdi-calendar"></i>
-                        </div>
-                      </div>
-                      <div
-                        class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                      >
-                        <h6 class="preview-subject font-weight-normal mb-1">
-                          Event today
-                        </h6>
-                        <p class="text-gray ellipsis mb-0">
-                          Just a reminder that you have an event today
-                        </p>
-                      </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                        <div class="preview-icon bg-warning">
-                          <i class="mdi mdi-settings"></i>
-                        </div>
-                      </div>
-                      <div
-                        class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                      >
-                        <h6 class="preview-subject font-weight-normal mb-1">
-                          Settings
-                        </h6>
-                        <p class="text-gray ellipsis mb-0">Update dashboard</p>
-                      </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                        <div class="preview-icon bg-info">
-                          <i class="mdi mdi-link-variant"></i>
-                        </div>
-                      </div>
-                      <div
-                        class="preview-item-content d-flex align-items-start flex-column justify-content-center"
-                      >
-                        <h6 class="preview-subject font-weight-normal mb-1">
-                          Launch Admin
-                        </h6>
-                        <p class="text-gray ellipsis mb-0">New admin wow!</p>
-                      </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="p-3 mb-0 text-center">See all notifications</h6>
-                  </div>
-                </li>
-                <li class="nav-item nav-profile dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    id="profileDropdown"
-                    href="#"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <div class="nav-profile-img">
-                      <img src=" /assets/images/faces/face1.jpg" alt="image" />
-                      <span class="availability-status online"></span>
-                    </div>
-                    <div class="nav-profile-text">
-                      <p class="mb-1 text-black">David Greymaax</p>
-                    </div>
-                  </a>
-                  <div
-                    class="dropdown-menu navbar-dropdown"
-                    aria-labelledby="profileDropdown"
-                  >
-                    <a class="dropdown-item" href="#">
-                      <i class="mdi mdi-cached me-2 text-success"></i> Activity Log
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                      <i class="mdi mdi-logout me-2 text-primary"></i> Signout
-                    </a>
-                  </div>
-                </li>
-                <li class="nav-item d-none d-lg-block full-screen-link">
-                  <a class="nav-link">
-                    <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-                  </a>
-                </li>
-              </ul>
-              <button
-                class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-                type="button"
-                data-toggle="offcanvas"
-              >
-                <span class="mdi mdi-menu"></span>
-              </button>
-            </div>
-          </nav>
-          <!-- partial -->
-          <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
-              <ul class="nav">
-               
-                <li class="nav-item">
-                  <a class="nav-link" href=" /index.html">
-                    <span class="menu-title">Dashboard</span>
-                    <i class="mdi mdi-home menu-icon"></i>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    data-bs-toggle="collapse"
-                    href="#ui-basic"
-                    aria-expanded="false"
-                    aria-controls="ui-basic"
-                  >
-                    <span class="menu-title">upload</span>
-                    <i class="menu-arrow"></i>
-                    <i class="mdi mdi-briefcase-upload menu-icon"></i>
-                  </a>
-                  <div class="collapse" id="ui-basic">
-                    <ul class="nav flex-column sub-menu">
-                      <li class="nav-item">
-                        <a class="nav-link" href="./pages/forms/Jwell/jwell.html">jwell</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="./pages/forms/Banner/banners.html"
-                        >Banners</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="./pages/forms/Newsfeed/newsfeed.html"
-                          >newsfeed</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    data-bs-toggle="collapse"
-                    href="#ui-basic-1"
-                    aria-expanded="false"
-                    aria-controls="ui-basic-1"
-                  >
-                    <span class="menu-title">View details</span>
-                    <i class="menu-arrow"></i>
-                    <i class="mdi mdi mdi-eye menu-icon"></i>
-                  </a>
-                  <div class="collapse" id="ui-basic-1">
-                    <ul class="nav flex-column sub-menu">
-                      <li class="nav-item">
-                        <a class="nav-link" href="./pages/forms/Jwell/Jwell-detail.html">jwell</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="./pages/forms/Banner/banners-detail.html"
-                        >Banners</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="./pages/forms/Newsfeed/Newsfeed-detail.html"
-                          >newsfeed</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-    
-                <li class="nav-item">
-                  <a class="nav-link" href="./../../charts/chartjs.html">
-                    <span class="menu-title">Statistics</span>
-                    <i class="mdi mdi-chart-bar menu-icon"></i>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <!-- partial -->
-          
-            <div class="main-panel ">
-                
-              <div class="content-wrapper ">
-               
-               
-                <div class="row justify-content-center">
-                    
-                  <div class="col-md-6 grid-margin stretch-card ">
-                    <div class="card">
-                      <div class="card-body">
-                     
-                       
-                        <h4 class="card-title">Add new jwell</h4>
-                      
-                        <form class="forms-sample" >
-                          <div class="form-group row">
-                            <label for="name" class="col-sm-3 col-form-label">Title:</label>
-                            <div class="col-sm-9">
-                              
-                              <input type="text"  value="<%= jewellData.title %>" class="form-control" id="name" placeholder="name">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="description" class="col-sm-3 col-form-label">description:</label>
-                            <div class="col-sm-9">
-                              <input type="text" value="wewd" class="form-control" id="description" placeholder="description">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                          <label class="col-sm-3 " for="dropdown">Select category:</label>
-                          <div class="col-sm-9">
-                          <select   class="form-control dropdown-toggle" id="dropdown">
-                            <option value="neckleace">neckleace</option>
-                            <option value="rings">rings</option>
-                            <option value="bangles">bangles</option>
-                            <option value="chain">chain</option>
-                          </select>
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-3 " for="dropdowng">Select gender:</label>
-                            <div class="col-sm-9">
-                            <select  value="kjnajc" type="text" class="form-control  dropdown-toggle" id="dropdowng">
-                              <option value="male">male</option>
-                              <option value="women">women</option>
-                             
-                            </select>
-                          </div>
-                          </div>
-                          
-                          <div class="form-group row">
-                            <label for="amount" class="col-sm-3 col-form-label">amount:</label>
-                            <div class="col-sm-9">
-                              <input type="number"  value="645" class="form-control" id="amount" placeholder="amount">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="rating" class="col-sm-3 col-form-label">rating:</label>
-                            <div class="col-sm-9">
-                              <input type="text"  value="kjnajc" class="form-control" id="rating" placeholder="Mobile number">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="ratingo" class="col-sm-3 col-form-label">rating out of:</label>
-                            <div class="col-sm-9">
-                              <input type="text"  value="kjnajc" class="form-control" id="ratingo" placeholder="Mobile number">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="img" class="col-sm-3 col-form-label">Image url:</label>
-                            <div class="col-sm-9">
-                              <input type="text"  value="kjnajc" class="form-control" id="img" placeholder="url">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="img1" class="col-sm-3 col-form-label">Image url 1:</label>
-                            <div class="col-sm-9">
-                              <input type="text"  value="kjnajc" class="form-control" id="img1" placeholder="url 1">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="img2" class="col-sm-3 col-form-label">Image url 2:</label>
-                            <div class="col-sm-9">
-                              <input type="text"  value="kjnajc" class="form-control" id="img2" placeholder="url 2">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="img3" class="col-sm-3 col-form-label">Image url 3:</label>
-                            <div class="col-sm-9">
-                              <input type="text"  value="kjnajc" class="form-control" id="img3" placeholder="url 3">
-                            </div>
-                          </div>
-                          
-                          
-                          <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
-                          <button type="reset" class="btn btn-light">Cancel</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                 
-              <!-- partial -->
-            </div>
-            <!-- main-panel ends -->
-          </div>
-          <!-- page-body-wrapper ends -->
-        </div>
-        <!-- container-scroller -->
-        <!-- plugins:js -->
-        <script>
-          document.getElementById("dropdown").value = "chain";
-        </script>
-        <script>
-          document.getElementById("dropdowng").value = "male";
-        </script>
-        <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
-        <!-- endinject -->
-        <!-- Plugin js for this page -->
-        <!-- End plugin js for this page -->
-        <!-- inject:js -->
-        <script src=" /assets/js/off-canvas.js"></script>
-        <script src=" /assets/js/hoverable-collapse.js"></script>
-        <script src=" /assets/js/misc.js"></script>
-        <!-- endinject -->
-        <!-- Custom js for this page -->
-        <script src=" /assets/js/file-upload.js"></script>
-        <!-- End custom js for this page -->
-      </body>
-    </html>
+    <script src=" /assets/js/off-canvas.js"></script>
     <script src=" /assets/js/hoverable-collapse.js"></script>
     <script src=" /assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src=" /assets/js/file-upload.js"></script>
-    <!-- End custom js for this page -->
-  </body>
-</html>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src=" /assets/js/file-upload.js"></script>

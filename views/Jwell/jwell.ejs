@@ -8,12 +8,31 @@
 
     <link rel="stylesheet" href=" /assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href=" /assets/vendors/css/vendor.bundle.base.css">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <link rel="stylesheet" href=" /assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href=" /assets/images/favicon.ico" />
+    <style>
+      .image-container {
+        position: relative;
+        display: inline-block;
+      }
+    
+      .delete-icon {
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        color: red;
+        cursor: pointer;
+        background-color: white;
+        border-radius: 50%;
+      }
+   
+    </style>
   </head>
   <body>
+   
     <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
       <nav
@@ -305,18 +324,17 @@
                     <a class="nav-link" href="/admin/viewdetails/details">jwell</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/admin/upload/banners"
+                    <a class="nav-link" href="./pages/forms/Banner/banners-detail.html"
                     >Banners</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/admin/upload/newsfeed"
+                    <a class="nav-link" href="./pages/forms/Newsfeed/Newsfeed-detail.html"
                       >newsfeed</a
                     >
                   </li>
                 </ul>
               </div>
             </li>
-
 
             <li class="nav-item">
               <a class="nav-link" href="./../../charts/chartjs.html">
@@ -340,89 +358,140 @@
                   <div class="card-body">
                  
                    
-                    <h4 class="card-title">Add new jwell</h4>
+                    <h4 class="card-title">You can edit here</h4>
                   
-                    <form class="forms-sample" >
+                    <form class="forms-sample" enctype="multipart/form-data" action="http://localhost:3001/purple/v1/jewel/" method="post">
                       <div class="form-group row">
-                        <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                        <label for="name" class="col-sm-3 col-form-label">Title:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="name" placeholder="name">
+                          <input type="text" name="title" class="form-control" id="name" placeholder="title">
                         </div>
                       </div>
+                     
                       <div class="form-group row">
                         <label for="description" class="col-sm-3 col-form-label">description:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="description" placeholder="description">
+                          <input type="text" class="form-control" name="description" id="description" placeholder="description">
                         </div>
                       </div>
                       <div class="form-group row">
-                      <label class="col-sm-3 " for="dropdown">Select category:</label>
+                      <label class="col-sm-3 " for="dropdown">Select jwell type:</label>
                       <div class="col-sm-9">
-                      <select class="form-control dropdown-toggle" id="dropdown">
-                        <option>neckleace</option>
-                        <option>rings</option>
-                        <option>bangles</option>
-                        <option>chain</option>
+                      <select name="jewel_type" class="form-control dropdown-toggle" id="dropdown">
+                        <option value="neckleace">neckleace</option>
+                        <option value="rings">rings</option>
+                        <option value="bangles">bangles</option>
+                        <option value="chain">chain</option>
+                        <option value="bracelet">bracelet</option>
+                        <option value="earrings">Earrings</option>
+                       
                       </select>
                     </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-3 " for="dropdowng">Select gender:</label>
                         <div class="col-sm-9">
-                        <select type="text" class="form-control  dropdown-toggle" id="dropdowng">
-                          <option>male</option>
-                          <option>women</option>
-                         
+                          <select name="gender" class="form-control dropdown-toggle" id="dropdowng">
+                            <option value="men">Male</option>
+                            <option value="women">Female</option>
+                            <option value="other">Other</option>
                         </select>
                       </div>
                       </div>
-                      
                       <div class="form-group row">
-                        <label for="amount" class="col-sm-3 col-form-label">amount:</label>
+                        <label class="col-sm-3" for="dropdowng">Select occasion</label>
                         <div class="col-sm-9">
-                          <input type="number" class="form-control" id="amount" placeholder="amount">
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="occasion" value="casual" id="casualCheckbox"> Casual
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="occasion" value="function" id="functionCheckbox"> Function
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="occasion" value="Parties" id="partiesCheckbox"> Parties
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="occasion" value="Work" id="workCheckbox"> Work
+                            </label>
+                          </div>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="rating" class="col-sm-3 col-form-label">rating:</label>
+                        <label class="col-sm-3" for="dropdowng">Select faceType</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="rating" placeholder="Mobile number">
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="faceType" value="heart" id="heartCheckbox"> heart
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="faceType" value="square" id="squareCheckbox"> square
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="faceType" value="oval" id="ovalCheckbox"> oval
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="faceType" value="round" id="roundCheckbox"> round
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                   
+                    
+                      <div class="form-group row">
+                        <label  for="amount" class="col-sm-3 col-form-label">amount:</label>
+                        <div class="col-sm-9">
+                          <input name="price" type="number" class="form-control" id="amount" placeholder="amount">
+                        </div>
+                      </div>
+                     
+                      <div class="form-group row">
+                        <label for="ratingo" class="col-sm-3 col-form-label">weight:</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="weight" id="ratingo" placeholder="weight">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="ratingo" class="col-sm-3 col-form-label">rating out of:</label>
+                        <label for="img" class="col-sm-3 col-form-label">karat:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="ratingo" placeholder="Mobile number">
+                          <input type="text" class="form-control" name="karat" id="img" placeholder="karat">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="img" class="col-sm-3 col-form-label">Image url:</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" id="img" placeholder="url">
+                        <label for="img1" class="col-sm-3 col-form-label">Overlay Image:</label>
+          
+                          <div class="col-sm-9">
+                            <input type="file" name="overlay" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
+                            <img src="" id="imagePreview" class="img-fluid mt-3">
                         </div>
+                        
+                       
                       </div>
                       <div class="form-group row">
-                        <label for="img1" class="col-sm-3 col-form-label">Image url 1:</label>
+                        <label for="img2" class="col-sm-3 col-form-label">Images:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="img1" placeholder="url 1">
+                          <input type="file" name="image" id="imageInput" class="form-control-file" accept="image/*" multiple>        
+                                            <div class="preview-container"></div>
+                        
+                              <img src="" class="img-fluid mt-3">
+                             
+                          
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label for="img2" class="col-sm-3 col-form-label">Image url 2:</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" id="img2" placeholder="url 2">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="img3" class="col-sm-3 col-form-label">Image url 3:</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" id="img3" placeholder="url 3">
-                        </div>
-                      </div>
-                      
-                      
+                 
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                      <button type="reset" class="btn btn-light">Cancel</button>
                     </form>
                   </div>
                 </div>
@@ -437,6 +506,58 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Listen for file input change
+        $("#imageInput").on('change', function() {
+            var previewContainer = $('.preview-container');
+            previewContainer.empty(); // Clear previous previews
+    
+            var files = $(this)[0].files;
+    
+            for (var i = 0; i <files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+    
+                reader.onload = function(e) {
+                    var image = '<img src="' + e.target.result + '" class="img-fluid mt-3">';
+                    previewContainer.append(image);
+                };
+    
+                reader.readAsDataURL(file);
+            }
+        });
+    
+        // You can handle form submission here
+        $("#imageForm").submit(function(event) {
+            event.preventDefault();
+            // Perform form submission or other actions here
+        });
+    });
+    </script>
+    <script>
+      function updateImagePreview(input) {
+        var imagePreview = document.getElementById("imagePreview");
+        
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    document.getElementById("imageUpload").addEventListener("click", function () {
+        // When the input is clicked, reset it to allow selecting the same file again
+        this.value = null;
+    });
+    
+    
+    
+    
+    
+    </script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->

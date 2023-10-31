@@ -340,7 +340,7 @@
                   <div class="card-body">
                  
                    
-                    <h4 class="card-title">Add new newsfeed</h4>
+                    <h4 class="card-title">Update here</h4>
                   
                     <form class="forms-sample" >
                     
@@ -348,26 +348,27 @@
                       <div class="form-group row">
                         <label for="title" class="col-sm-3 col-form-label">Title:</label>
                         <div class="col-sm-9">
-                          <input type="text" value="kjnajc" class="form-control" id="off" placeholder="Title">
+                          <input type="text" value="<%= newsfeedDatadetails.title %>" class="form-control" id="off" placeholder="Title">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="description" class="col-sm-3 col-form-label">description:</label>
                         <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="description" placeholder="Mobile number">
+                          <input type="text"  value="<%= newsfeedDatadetails.description %>" class="form-control" id="description" placeholder="Mobile number">
                         </div>
                       </div>
                     
                       <div class="form-group row">
-                        <label for="img" class="col-sm-3 col-form-label">Image url:</label>
+                        <label for="img" class="col-sm-3 col-form-label">Image:</label>
                         <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="img" placeholder="image url">
-                        </div>
+                          <input type="file" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
+                          <img src="<%= newsfeedDatadetails.img %>" id="imagePreview" class="img-fluid mt-3">
+                      </div>
                       </div>
                       <div class="form-group row">
-                        <label for="date" class="col-sm-3 col-form-label">date:</label>
+                        <label for="date" class="col-sm-3 col-form-label">Likes:</label>
                         <div class="col-sm-9">
-                          <input type="text"  value="kjnajc" class="form-control" id="date" placeholder="dd/mm/yyyy">
+                          <input type="text"  value="<%= newsfeedDatadetails.likes %>" class="form-control" id="date" placeholder="likes">
                         </div>
                       </div>
                       
@@ -389,6 +390,29 @@
     <!-- plugins:js -->
     <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
+    <script>
+      function updateImagePreview(input) {
+        var imagePreview = document.getElementById("imagePreview");
+        
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    document.getElementById("imageUpload").addEventListener("click", function () {
+        // When the input is clicked, reset it to allow selecting the same file again
+        this.value = null;
+    });
+    
+    
+    
+    
+    
+    </script>
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->
