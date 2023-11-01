@@ -332,8 +332,8 @@
          
           <div class="content-wrapper ">
            
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              This is a success alert—check it out!
+            <div class="alert alert-success alert-dismissible fade show" id="successMessage" style="display: none ;" role="alert">
+              Banner successfully added.
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             
@@ -342,7 +342,8 @@
               <div class="col-md-6 grid-margin stretch-card ">
                 <div class="card">
                   <div class="card-body">
-                 
+                   
+                    
                     
                     <h4 class="card-title">Banner details</h4>
                   
@@ -380,67 +381,41 @@
       <!-- page-body-wrapper ends -->
     </div>
     
-    <!-- container-scroller -->
-    <!-- <script>
-      // Handle form submission
-      function handleSubmitForm(e) {
-  e.preventDefault();
-
-  const formData = new FormData(this);
-// console.log(formData)
-  // Send the form data to the server using AJAX or fetch
-  fetch('http://localhost:3001/purple/v1/banner/', {
-     method: 'POST',
-     body: formData,
-   })
-    .then((response) => response.json())
-    .then((data) => {
-      // Handle the success response
-      if (data.status === 200) {
-        const successMessageDiv = document.getElementById("successMessage");
-        successMessageDiv.innerHTML = data.message;
-        successMessageDiv.style.display = "block";
-      } else {
-        // Handle errors or other responses from the server
-        console.error("Server error:", data);
-      }
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
-
-    </script> -->
-    <!-- <script>
-      // Function to display the success message
-      document.getElementById('myForm').addEventListener('submit', function (e) {
-   e.preventDefault(); // Prevent the default form submission
- 
-   // Get form data
-   const formData = new FormData(this);
- 
-   fetch('http://localhost:3001/purple/v1/banner/', {
-     method: 'POST',
-     body: formData,
-   })
-     .then((response) => {
-       if (response.ok) {
-         // Handle a successful response
-         document.getElementById('success-message').textContent = 'Form data sent successfully';
-         document.getElementById('success-message').style.display = 'block';
-       } else {
-         // Handle an error response
-         document.getElementById('success-message').textContent = 'Failed to send form data';
-         document.getElementById('success-message').style.display = 'block';
-       }
-     })
-     .catch((error) => {
-       document.getElementById('success-message').textContent = 'An error occurred: ' + error;
-       document.getElementById('success-message').style.display = 'block';
-     });
- });
- 
-     </script> -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('.forms-sample');
+        const successMessage = document.getElementById('successMessage');
+      
+        form.addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent the form from submitting the traditional way
+      
+          // Assuming you have FormData object 'formData' with the form data
+          // You can create this object when the form is submitted
+          const formData = new FormData(form);
+          fetch('http://localhost:3001/purple/v1/banner/', {
+            method: 'POST',
+            body: formData, // Your form data
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.showsuccess) {
+                // Show the success message
+                var imagePreview = document.getElementById("imagePreview");
+                imagePreview.src = ""; 
+                form.reset();
+                successMessage.style.display = 'block';
+                window.scrollTo(0, 0); 
+              } else {
+                // Handle the case where the server response does not indicate success
+                console.log('there was some issue');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+        });
+      });
+      </script>
     <!-- plugins:js -->
     <script>
       function updateImagePreview(input) {

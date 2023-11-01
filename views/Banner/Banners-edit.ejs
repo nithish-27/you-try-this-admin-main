@@ -342,26 +342,26 @@
                    
                     <h4 class="card-title">Banner details</h4>
                   
-                    <form class="forms-sample" >
+                    <form class="forms-sample" class="forms-sample" enctype="multipart/form-data" action="http://localhost:3001/purple/v1/banner/" method="patch" id="updateBannerForm" >
                     
                       
                       <div class="form-group row">
                         <label for="off" class="col-sm-3 col-form-label">Title:</label>
                         <div class="col-sm-9">
-                          <input type="text" value="<%= bannerDatadetails.Banner_Heading %>" class="form-control" id="off" placeholder="amount">
+                          <input type="text" name="Banner_Heading" value="<%= bannerDatadetails.Banner_Heading %>" class="form-control" id="off" placeholder="amount">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="description" class="col-sm-3 col-form-label">description:</label>
                         <div class="col-sm-9">
-                          <input type="text" value="<%= bannerDatadetails.Banner_Description %>"class="form-control" id="description" placeholder="Mobile number">
+                          <input type="text" name="Banner_Description" value="<%= bannerDatadetails.Banner_Description %>"class="form-control" id="description" placeholder="Mobile number">
                         </div>
                       </div>
                     
                       <div class="form-group row">
-                        <label for="img" class="col-sm-3 col-form-label">Image url:</label>
+                        <label for="img" class="col-sm-3 col-form-label">Image:</label>
                         <div class="col-sm-9">
-                          <input type="file" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
+                          <input type="file" name="img" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
                           <img src="<%= bannerDatadetails.img %>" id="imagePreview" class="img-fluid mt-3">
                       </div>
                       </div>
@@ -382,6 +382,48 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('.forms-sample');
+  // const updateBannerForm = document.getElementById('updateBannerForm');
+  updateBannerForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
+    // Create a FormData object to collect form data
+    const formData = new FormData(form);
+    console.log(formData);
+    // Check if a new image is selected or not
+    const imageInput = document.getElementById('imageUpload');
+    if (!imageInput.files.length) {
+      // If no new image is selected, use the previous image URL
+      const previousImageURL = document.getElementById('imagePreview').src;
+      formData.append('imageurl', previousImageURL);
+    }
+console.log(formData);
+    // Make a POST request to the server
+    fetch(`http://localhost:3001/purple/v1/banner/<%= bannerDatadetails._id %>`, {
+      method: 'PATCH',
+      body: formData, // Send form data
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the server
+        if (data) {
+          // Display a success message or perform other actions
+          console.log('Request succeeded:', data);
+        } else {
+          // Handle errors or display error messages
+          console.log('Request failed:', data);
+        }
+      })
+      .catch(error => {
+        // Handle network errors or other issues
+        console.error('Error:', error);
+      });
+  });
+});
+
+    </script>
     <script>
       function updateImagePreview(input) {
         var imagePreview = document.getElementById("imagePreview");

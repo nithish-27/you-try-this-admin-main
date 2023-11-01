@@ -349,7 +349,10 @@
         <div class="main-panel ">
             
           <div class="content-wrapper ">
-           
+            <div class="alert alert-success alert-dismissible fade show" id="successMessage" style="display: none;" role="alert">
+              jwell successfully added.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
            
             <div class="row justify-content-center">
                 
@@ -505,6 +508,39 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('.forms-sample');
+        const successMessage = document.getElementById('successMessage');
+      
+        form.addEventListener('submit', function (event) {
+          event.preventDefault(); 
+          const formData = new FormData(form);
+          fetch('http://localhost:3001/purple/v1/jewel/', {
+            method: 'POST',
+            body: formData, 
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.showsuccess) {
+               
+                form.reset();
+                var imagePreview = document.getElementById("imagePreview");
+                imagePreview.src = ""; 
+                var imageInput = document.getElementById("previewImages");
+                imageInput.src = ""; 
+                successMessage.style.display = 'block';
+                window.scrollTo(0, 0); 
+              } else {
+                console.log('there was some issue');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+        });
+      });
+      </script>
     <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
     <script>
       $(document).ready(function() {
@@ -520,7 +556,7 @@
                 var reader = new FileReader();
     
                 reader.onload = function(e) {
-                    var image = '<img src="' + e.target.result + '" class="img-fluid mt-3">';
+                    var image = '<img src="' + e.target.result + '" id="previewImages" class="img-fluid mt-3">';
                     previewContainer.append(image);
                 };
     
