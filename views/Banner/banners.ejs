@@ -392,6 +392,7 @@
           // Assuming you have FormData object 'formData' with the form data
           // You can create this object when the form is submitted
           const formData = new FormData(form);
+          console.log(formData)
           fetch('http://localhost:3001/purple/v1/banner/', {
             method: 'POST',
             body: formData, // Your form data

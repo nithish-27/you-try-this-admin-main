@@ -350,7 +350,10 @@
             
           <div class="content-wrapper ">
            
-           
+            <div class="alert alert-success alert-dismissible fade show" id="successMessage" style="display: none;" role="alert">
+              jwell successfully updated.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <div class="row justify-content-center">
                 
               <div class="col-md-6 grid-margin stretch-card ">
@@ -360,23 +363,23 @@
                    
                     <h4 class="card-title">You can edit here</h4>
                   
-                    <form class="forms-sample" >
+                    <form class="forms-sample" id="jewelUpdate" action="http://localhost:3001/purple/v1/jewel/<%= jwellData._id %>" method="post">
                       <div class="form-group row">
                         <label for="name" class="col-sm-3 col-form-label">Title:</label>
                         <div class="col-sm-9">
-                          <input type="text" value="<%= jwellData.title %>" class="form-control" id="name" placeholder="name">
+                          <input type="text" name="title" value="<%= jwellData.title %>" class="form-control" id="name" placeholder="title">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="description" class="col-sm-3 col-form-label">description:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" value="<%= jwellData.description %>" id="description" placeholder="description">
+                          <input type="text" name="description" class="form-control" value="<%= jwellData.description %>" id="description" placeholder="description">
                         </div>
                       </div>
                       <div class="form-group row">
                       <label class="col-sm-3 " for="dropdown">Select jwell type:</label>
                       <div class="col-sm-9">
-                      <select class="form-control dropdown-toggle" id="dropdown">
+                      <select name="jewel_type" class="form-control dropdown-toggle" id="dropdown">
                         <option value="neckleace">neckleace</option>
                         <option value="rings">rings</option>
                         <option value="bangles">bangles</option>
@@ -390,7 +393,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 " for="dropdowng">Select gender:</label>
                         <div class="col-sm-9">
-                          <select class="form-control dropdown-toggle" id="dropdowng">
+                          <select name="gender" class="form-control dropdown-toggle" id="dropdowng">
                             <option value="men">Male</option>
                             <option value="women">Female</option>
                             <option value="other">Other</option>
@@ -402,22 +405,22 @@
                         <div class="col-sm-9">
                           <div class="form-check form-check-inline">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" value="casual" id="casualCheckbox"> Casual
+                              <input type="checkbox" name="occasion" class="form-check-input" value="casual" id="casualCheckbox"> Casual
                             </label>
                           </div>
                           <div class="form-check form-check-inline">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" value="function" id="functionCheckbox"> Function
+                              <input type="checkbox" name="occasion" class="form-check-input" value="function" id="functionCheckbox"> Function
                             </label>
                           </div>
                           <div class="form-check form-check-inline">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" value="Parties" id="partiesCheckbox"> Parties
+                              <input type="checkbox" name="occasion" class="form-check-input" value="Parties" id="partiesCheckbox"> Parties
                             </label>
                           </div>
                           <div class="form-check form-check-inline">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" value="Work" id="workCheckbox"> Work
+                              <input type="checkbox" name="occasion"  class="form-check-input" value="Work" id="workCheckbox"> Work
                             </label>
                           </div>
                         </div>
@@ -427,22 +430,22 @@
                         <div class="col-sm-9">
                           <div class="form-check form-check-inline">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" value="heart" id="heartCheckbox"> heart
+                              <input type="checkbox" name="faceType" class="form-check-input" value="heart" id="heartCheckbox"> heart
                             </label>
                           </div>
                           <div class="form-check form-check-inline">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" value="square" id="squareCheckbox"> square
+                              <input type="checkbox" name="faceType" class="form-check-input" value="square" id="squareCheckbox"> square
                             </label>
                           </div>
                           <div class="form-check form-check-inline">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" value="oval" id="ovalCheckbox"> oval
+                              <input type="checkbox" name="faceType" class="form-check-input" value="oval" id="ovalCheckbox"> oval
                             </label>
                           </div>
                           <div class="form-check form-check-inline">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" value="round" id="roundCheckbox"> round
+                              <input type="checkbox" name="faceType" class="form-check-input" value="round" id="roundCheckbox"> round
                             </label>
                           </div>
                         </div>
@@ -452,32 +455,27 @@
                       <div class="form-group row">
                         <label for="amount" class="col-sm-3 col-form-label">amount:</label>
                         <div class="col-sm-9">
-                          <input type="number" value="<%= jwellData.price %>"class="form-control" id="amount" placeholder="amount">
+                          <input type="number" name="price" value="<%= jwellData.price %>"class="form-control" id="amount" placeholder="amount">
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label for="rating" class="col-sm-3 col-form-label">likes:</label>
-                        <div class="col-sm-9">
-                          <input type="text" value="<%= jwellData.jewel_like %>"class="form-control" id="rating" placeholder="Mobile number">
-                        </div>
-                      </div>
+                      
                       <div class="form-group row">
                         <label for="ratingo" class="col-sm-3 col-form-label">weight:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" value="<%= jwellData.weight %>"id="ratingo" placeholder="Mobile number">
+                          <input type="text" class="form-control" name="weight" value="<%= jwellData.weight %>"id="ratingo" placeholder="Mobile number">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="img" class="col-sm-3 col-form-label">karat:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" value="<%= jwellData.karat %>"id="img" placeholder="url">
+                          <input type="text" name="karat" class="form-control" value="<%= jwellData.karat %>"id="img" placeholder="url">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="img1" class="col-sm-3 col-form-label">Overlay Image:</label>
           
                           <div class="col-sm-9">
-                            <input type="file" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
+                            <input name="overlay" type="file" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
                             <img src="<%= jwellData.overlay %>" id="imagePreview" class="img-fluid mt-3">
                         </div>
                         
@@ -486,13 +484,14 @@
                       <div class="form-group row">
                         <label for="img2" class="col-sm-3 col-form-label">Images:</label>
                         <div class="col-sm-9">
-                          <input type="file" id="imageInput" class="form-control-file" accept="image/*" multiple>
+                          <input type="file" name="image" id="imageInput" class="form-control-file" accept="image/*" multiple>
                                                     <div class="preview-container"></div>
                           <% jwellData.image.forEach(function(item) { %>
-                            <div class="image-container">
+                            <div class="image-container" data-image-url="<%= item %>" data-jewelry-id="<%= jwellData._id %>">
                               <img src="<%= item %>" class="img-fluid mt-3">
                               <i class="fa fa-trash delete-icon" onclick="deleteImage(this)"></i>
                             </div>
+                            
                           <% }); %>
                           
                         </div>
@@ -517,41 +516,96 @@
     <!-- plugins:js -->
     <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
     
+
+    <script>
+       
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('jewelUpdate');
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+
+          const formData = new FormData(form);
+          console.log(formData);
+          // const imageInput = document.getElementById('imageUpload');
+
+          const pImageURL = '<%= JSON.stringify(jwellData.overlay) %>';
+          const unescapedImageurl = pImageURL
+            .replace(/^&#34;/, '')
+            .replace(/&#34;$/, '');
+          formData.append('imageurl', unescapedImageurl);
+          console.log(unescapedImageurl)
+          fetch('http://localhost:3001/purple/v1/jewel/<%= jwellData._id %>', {
+            method: 'PATCH',
+            body: formData,
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data) {
+               successMessage.style.display = 'block';
+               window.scrollTo(0, 0); 
+               window.location.reload();
+                console.log('Request succeeded:', data);
+              } else {
+                successMessage.innerHTML = 'there was some error updating'; // Replace with your new content
+          successMessage.classList.remove('alert-success'); // Remove the old class
+          successMessage.classList.add('alert-danger');
+              }
+            })
+            .catch(error => {
+              successMessage.innerHTML = 'there was some error updating'; // Replace with your new content
+          successMessage.classList.remove('alert-success'); // Remove the old class
+          successMessage.classList.add('alert-danger');
+            });
+        });
+      });
+    </script>
+
     <script>// Initialize an array to store image URLs
-      var imageUrls = [
-        // List of image URLs from your server
-        <% jwellData.image.forEach(function(item) { %>
-          '<%= item %>',
-        <% }); %>
-      ];
-      
-      function deleteImage(deleteButton) {
-        var imageContainer = deleteButton.parentNode; // Get the parent container of the image and delete button
-        var image = imageContainer.querySelector('img'); // Get the image element
-        var imageUrl = image.getAttribute('src'); // Get the URL of the image
-      
-        // Send the imageUrl to the server for deletion or update
-        // For example, using an AJAX request to notify the server to delete the image
-      
-        // Remove the image container from the DOM
-        imageContainer.remove();
-      
-        // Remove the deleted image URL from the imageUrls array
-        var index = imageUrls.indexOf(imageUrl);
-        if (index > -1) {
-          imageUrls.splice(index, 1);
-        }
+     function deleteImage(deleteButton) {
+  var imageContainer = deleteButton.parentNode;
+  var imageUrl = imageContainer.getAttribute('data-image-url'); // Get the image URL from the data attribute
+  var jewelryId = imageContainer.getAttribute('data-jewelry-id');
+  // var image = imageContainer.querySelector('img');
+  // var imageUrl = image.getAttribute('src');
+  imageContainer.remove();
+console.log(jewelryId)
+  // const formData = new FormData();
+  // formData.append('imageUrl', imageUrl);
+  // formData.append('jewelryId', jewelryId);
+  const myObject = {}; // Create an empty object
+
+myObject["imageUrl"] = `${imageUrl}`; // Add a "name" property
+myObject["jewelryId"] = `${jewelryId}`; 
+  // Make an AJAX request to the server to delete the image
+  fetch(`http://localhost:3001/purple/v1/jewel/`, {
+    method: 'PATCH',
+    body: JSON.stringify(myObject),
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Image deleted successfully on the server');
+      } else {
+        console.error('Failed to delete the image on the server');
       }
-      
-      // You can access the updated imageUrls array to get the remaining image URLs
-      console.log(imageUrls);
+    })
+    .catch((error) => {
+      console.error('Error while making the delete request:', error);
+    });
+}
+
       </script>
+      
+  
        <script>
     $(document).ready(function() {
-      // Listen for file input change
       $("#imageInput").on('change', function() {
           var previewContainer = $('.preview-container');
-          previewContainer.empty(); // Clear previous previews
+          previewContainer.empty(); 
   
           var files = $(this)[0].files;
   
@@ -568,24 +622,19 @@
           }
       });
   
-      // You can handle form submission here
       $("#imageForm").submit(function(event) {
           event.preventDefault();
-          // Perform form submission or other actions here
       });
   });
   </script>
     <script>
-      // Initialize an empty array to store the selected values
       var selectedValues = [];
     
-      // Add change event listeners to the checkboxes
       document.getElementById("heartCheckbox").addEventListener("change", updateSelectedValues);
       document.getElementById("squareCheckbox").addEventListener("change", updateSelectedValues);
       document.getElementById("ovalCheckbox").addEventListener("change", updateSelectedValues);
       document.getElementById("roundCheckbox").addEventListener("change", updateSelectedValues);
     
-      // Function to update the selectedValues array when checkboxes change
       function updateSelectedValues() {
         selectedValues = [];
         if (document.getElementById("heartCheckbox").checked) {
@@ -601,22 +650,18 @@
           selectedValues.push("round");
         }
     
-        // You can now access the selected values in the 'selectedValues' array
         console.log(selectedValues);
       }
       var faceArray = [];
      <% jwellData.faceType.forEach(function(item) { %>
     faceArray.push('<%= item %>');
   <% }); %>
-      // Assuming you have received 'occasionArray' from the server
     
     
-      // Pre-select checkboxes based on the received 'occasionArray'
       faceArray.forEach(function(item) {
         document.getElementById(item + "Checkbox").checked = true;
       });
     
-      // Update 'selectedValues' based on the pre-selected checkboxes
       updateSelectedValues();
     </script>
     <script>
@@ -633,7 +678,6 @@
   }
   
   document.getElementById("imageUpload").addEventListener("click", function () {
-      // When the input is clicked, reset it to allow selecting the same file again
       this.value = null;
   });
   
@@ -643,16 +687,13 @@
   
   </script>
     <script>
-      // Initialize an empty array to store the selected values
       var selectedValues = [];
     
-      // Add change event listeners to the checkboxes
       document.getElementById("casualCheckbox").addEventListener("change", updateSelectedValues);
       document.getElementById("functionCheckbox").addEventListener("change", updateSelectedValues);
       document.getElementById("partiesCheckbox").addEventListener("change", updateSelectedValues);
       document.getElementById("workCheckbox").addEventListener("change", updateSelectedValues);
     
-      // Function to update the selectedValues array when checkboxes change
       function updateSelectedValues() {
         selectedValues = [];
         if (document.getElementById("casualCheckbox").checked) {
@@ -668,7 +709,6 @@
           selectedValues.push("Work");
         }
     
-        // You can now access the selected values in the 'selectedValues' array
         console.log(selectedValues);
       }
      
@@ -676,25 +716,18 @@
      <% jwellData.occasion.forEach(function(item) { %>
     occasionArray.push('<%= item %>');
   <% }); %>
-      
-      // var occasionArray = ``;
-
-      // Pre-select checkboxes based on the received 'occasionArray'
+    
       occasionArray.forEach(function(item) {
         document.getElementById(item + "Checkbox").checked = true;
       });
     
-      // Update 'selectedValues' based on the pre-selected checkboxes
       updateSelectedValues();
     </script>
     
     <script>
-      var selectedOption = "<%= jwellData.gender %>"; // Replace with the actual value from the server
-
-// Get the select element
+      var selectedOption = "<%= jwellData.gender %>"; 
 var dropdown = document.getElementById("dropdowng");
 
-// Loop through the options and set the selected option based on the received value
 for (var i = 0; i < dropdown.options.length; i++) {
     if (dropdown.options[i].value === selectedOption) {
         dropdown.selectedIndex = i;
@@ -703,12 +736,9 @@ for (var i = 0; i < dropdown.options.length; i++) {
 }
     </script>
       <script>
-        var selectedOption = "<%= jwellData.jewel_type %>"; // Replace with the actual value from the server
-  
-  // Get the select element
+        var selectedOption = "<%= jwellData.jewel_type %>";
   var dropdown = document.getElementById("dropdown");
   
-  // Loop through the options and set the selected option based on the received value
   for (var i = 0; i < dropdown.options.length; i++) {
       if (dropdown.options[i].value === selectedOption) {
           dropdown.selectedIndex = i;
@@ -730,7 +760,6 @@ for (var i = 0; i < dropdown.options.length; i++) {
 }
 
 document.getElementById("imageUpload").addEventListener("click", function () {
-    // When the input is clicked, reset it to allow selecting the same file again
     this.value = null;
 });
 

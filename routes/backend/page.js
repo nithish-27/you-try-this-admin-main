@@ -123,4 +123,9 @@ router.get("/newsfeed/edit/:id", async (req, res) => {
   // Fetch the data for editing and render an edit form.
 });
 
+// success message
+// router.get("/jwell/success", (req, res) => {
+//   res.render("../views/Jwell/jwell");
+// });
+
 module.exports = router;

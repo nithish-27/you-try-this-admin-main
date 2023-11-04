@@ -331,7 +331,10 @@
         <div class="main-panel ">
             
           <div class="content-wrapper ">
-           
+            <div class="alert alert-success alert-dismissible fade show" id="successMessage" style="display: none;" role="alert">
+              Newsfeed successfully updated.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
            
             <div class="row justify-content-center">
                 
@@ -342,40 +345,40 @@
                    
                     <h4 class="card-title">Update here</h4>
                   
-                    <form class="forms-sample" >
-                    
-                      
-                      <div class="form-group row">
-                        <label for="title" class="col-sm-3 col-form-label">Title:</label>
-                        <div class="col-sm-9">
-                          <input type="text" value="<%= newsfeedDatadetails.title %>" class="form-control" id="off" placeholder="Title">
-                        </div>
+                    <form class="forms-sample" id="updateBannerForm"
+                    action="http://localhost:3001/purple/v1/newsfeed/<%= newsfeedDatadetails._id %>" method="post">
+                    <div class="form-group row">
+                      <label for="title" class="col-sm-3 col-form-label">Title:</label>
+                      <div class="col-sm-9">
+                        <input type="text" value="<%= newsfeedDatadetails.title %>" name="title"
+                          class="form-control" placeholder="Title">
                       </div>
-                      <div class="form-group row">
-                        <label for="description" class="col-sm-3 col-form-label">description:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="<%= newsfeedDatadetails.description %>" class="form-control" id="description" placeholder="Mobile number">
-                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="description" class="col-sm-3 col-form-label">Description:</label>
+                      <div class="col-sm-9">
+                        <input type="text" value="<%= newsfeedDatadetails.description %>" name="description"
+                          class="form-control" placeholder="Description">
                       </div>
-                    
-                      <div class="form-group row">
-                        <label for="img" class="col-sm-3 col-form-label">Image:</label>
-                        <div class="col-sm-9">
-                          <input type="file" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
-                          <img src="<%= newsfeedDatadetails.img %>" id="imagePreview" class="img-fluid mt-3">
+                    </div>
+                    <div class="form-group row">
+                      <label for="description" class="col-sm-3 col-form-label">Likes:</label>
+                      <div class="col-sm-9">
+                        <input type="number" value="<%= newsfeedDatadetails.likes %>" name="likes"
+                          class="form-control" placeholder="likes">
                       </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="img" class="col-sm-3 col-form-label">Image:</label>
+                      <div class="col-sm-9">
+                        <input type="file" name="img" id="imageUpload" class="form-control-file" accept="image/*"
+                          onchange="updateImagePreview(this)">
+                        <img src="" id="imagePreview" class="img-fluid mt-3">
                       </div>
-                      <div class="form-group row">
-                        <label for="date" class="col-sm-3 col-form-label">Likes:</label>
-                        <div class="col-sm-9">
-                          <input type="text"  value="<%= newsfeedDatadetails.likes %>" class="form-control" id="date" placeholder="likes">
-                        </div>
-                      </div>
-                      
-                      
-                      <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
-                      <button type="reset" class="btn btn-light">Cancel</button>
-                    </form>
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                    <button type="reset" class="btn btn-light">Cancel</button>
+                  </form>
                   </div>
                 </div>
               </div>
@@ -390,6 +393,49 @@
     <!-- plugins:js -->
     <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
+    <script>
+       
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('updateBannerForm');
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+
+          const formData = new FormData(form);
+          console.log(formData);
+          const imageInput = document.getElementById('imageUpload');
+
+          const pImageURL = '<%= JSON.stringify(newsfeedDatadetails.img) %>';
+          const unescapedImageurl = pImageURL
+            .replace(/^&#34;/, '')
+            .replace(/&#34;$/, '');
+          formData.append('imageurl', unescapedImageurl);
+          console.log(unescapedImageurl)
+          fetch('http://localhost:3001/purple/v1/newsfeed/<%= newsfeedDatadetails._id %>', {
+            method: 'PATCH',
+            body: formData,
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data) {
+                successMessage.style.display = 'block';
+               window.scrollTo(0, 0); 
+               window.location.reload(); 
+             
+                console.log('Request succeeded:', data);
+              } else {
+                successMessage.innerHTML = 'there was some error updating'; // Replace with your new content
+          successMessage.classList.remove('alert-success'); // Remove the old class
+          successMessage.classList.add('alert-danger');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+        });
+      });
+    </script>
     <script>
       function updateImagePreview(input) {
         var imagePreview = document.getElementById("imagePreview");

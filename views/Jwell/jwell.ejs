@@ -488,7 +488,6 @@
                           <input type="file" name="image" id="imageInput" class="form-control-file" accept="image/*" multiple>        
                                             <div class="preview-container"></div>
                         
-                              <img src="" class="img-fluid mt-3">
                              
                           
                         </div>
@@ -527,8 +526,16 @@
                 form.reset();
                 var imagePreview = document.getElementById("imagePreview");
                 imagePreview.src = ""; 
-                var imageInput = document.getElementById("previewImages");
-                imageInput.src = ""; 
+                // const parentElement = document.querySelector('.preview-containers'); 
+
+                const parentContainer = document.querySelector('.preview-container');
+          const childImages = parentContainer.querySelectorAll('img');
+
+          childImages.forEach(childImage => {
+            parentContainer.removeChild(childImage);
+          });
+                // var imageInput = document.getElementById("previewImages");
+                // imageInput.src = ""; 
                 successMessage.style.display = 'block';
                 window.scrollTo(0, 0); 
               } else {
@@ -556,7 +563,7 @@
                 var reader = new FileReader();
     
                 reader.onload = function(e) {
-                    var image = '<img src="' + e.target.result + '" id="previewImages" class="img-fluid mt-3">';
+                    var image = '<img src="' + e.target.result + '" id="previewImages" class="previewImages img-fluid mt-3">';
                     previewContainer.append(image);
                 };
     
