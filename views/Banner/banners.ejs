@@ -347,7 +347,7 @@
                     
                     <h4 class="card-title">Banner details</h4>
                   
-                    <form class="forms-sample" enctype="multipart/form-data" action="http://localhost:3001/purple/v1/banner/" method="post">
+                    <form class="forms-sample" enctype="multipart/form-data" action="https://yts-restapi.onrender.com/purple/v1/banner/" method="post">
                       <div class="form-group row">
                         <label for="title" class="col-sm-3 col-form-label">Title:</label>
                         <div class="col-sm-9">
@@ -393,7 +393,7 @@
           // You can create this object when the form is submitted
           const formData = new FormData(form);
           console.log(formData)
-          fetch('http://localhost:3001/purple/v1/banner/', {
+          fetch('https://yts-restapi.onrender.com/purple/v1/banner/', {
             method: 'POST',
             body: formData, // Your form data
           })

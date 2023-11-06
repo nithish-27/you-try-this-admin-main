@@ -263,7 +263,7 @@
                   <h4 class="card-title">Banner details</h4>
 
                   <form class="forms-sample" id="updateBannerForm"
-                    action="http://localhost:3001/purple/v1/banner/<%= bannerDatadetails._id %>" method="post">
+                    action="https://yts-restapi.onrender.com/purple/v1/banner/<%= bannerDatadetails._id %>" method="post">
                     <div class="form-group row">
                       <label for="title" class="col-sm-3 col-form-label">Title:</label>
                       <div class="col-sm-9">
@@ -320,7 +320,7 @@
               .replace(/&#34;$/, '');
             formData.append('imageurl', unescapedImageurl);
             console.log(unescapedImageurl)
-            fetch('http://localhost:3001/purple/v1/banner/<%= bannerDatadetails._id %>', {
+            fetch('https://yts-restapi.onrender.com/purple/v1/banner/<%= bannerDatadetails._id %>', {
               method: 'PATCH',
               body: formData,
             })

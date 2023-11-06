@@ -363,24 +363,24 @@
                    
                     <h4 class="card-title">You can edit here</h4>
                   
-                    <form class="forms-sample" enctype="multipart/form-data" action="http://localhost:3001/purple/v1/jewel/" method="post">
+                    <form class="forms-sample" enctype="multipart/form-data" action="https://yts-restapi.onrender.com/purple/v1/jewel/"   method="post">
                       <div class="form-group row">
                         <label for="name" class="col-sm-3 col-form-label">Title:</label>
                         <div class="col-sm-9">
-                          <input type="text" name="title" class="form-control" id="name" placeholder="title">
+                          <input required type="text" name="title" class="form-control" id="name" placeholder="title">
                         </div>
                       </div>
                      
                       <div class="form-group row">
                         <label for="description" class="col-sm-3 col-form-label">description:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="description" id="description" placeholder="description">
+                          <input required type="text" class="form-control" name="description" id="description" placeholder="description">
                         </div>
                       </div>
                       <div class="form-group row">
                       <label class="col-sm-3 " for="dropdown">Select jwell type:</label>
                       <div class="col-sm-9">
-                      <select name="jewel_type" class="form-control dropdown-toggle" id="dropdown">
+                      <select required name="jewel_type" class="form-control dropdown-toggle" id="dropdown">
                         <option value="neckleace">neckleace</option>
                         <option value="rings">rings</option>
                         <option value="bangles">bangles</option>
@@ -394,7 +394,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 " for="dropdowng">Select gender:</label>
                         <div class="col-sm-9">
-                          <select name="gender" class="form-control dropdown-toggle" id="dropdowng">
+                          <select required name="gender" class="form-control dropdown-toggle" id="dropdowng">
                             <option value="men">Male</option>
                             <option value="women">Female</option>
                             <option value="other">Other</option>
@@ -456,27 +456,27 @@
                       <div class="form-group row">
                         <label  for="amount" class="col-sm-3 col-form-label">amount:</label>
                         <div class="col-sm-9">
-                          <input name="price" type="number" class="form-control" id="amount" placeholder="amount">
+                          <input required name="price" type="number" class="form-control" id="amount" placeholder="amount">
                         </div>
                       </div>
                      
                       <div class="form-group row">
                         <label for="ratingo" class="col-sm-3 col-form-label">weight:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="weight" id="ratingo" placeholder="weight">
+                          <input required type="text" class="form-control" name="weight" id="ratingo" placeholder="weight">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="img" class="col-sm-3 col-form-label">karat:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="karat" id="img" placeholder="karat">
+                          <input required type="text" class="form-control" name="karat" id="img" placeholder="karat">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="img1" class="col-sm-3 col-form-label">Overlay Image:</label>
           
                           <div class="col-sm-9">
-                            <input type="file" name="overlay" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
+                            <input required type="file" name="overlay" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
                             <img src="" id="imagePreview" class="img-fluid mt-3">
                         </div>
                         
@@ -485,7 +485,7 @@
                       <div class="form-group row">
                         <label for="img2" class="col-sm-3 col-form-label">Images:</label>
                         <div class="col-sm-9">
-                          <input type="file" name="image" id="imageInput" class="form-control-file" accept="image/*" multiple>        
+                          <input required type="file" name="image" id="imageInput" class="form-control-file" accept="image/*" multiple>        
                                             <div class="preview-container"></div>
                         
                              
@@ -507,6 +507,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+ 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const form = document.querySelector('.forms-sample');
@@ -514,8 +515,22 @@
       
         form.addEventListener('submit', function (event) {
           event.preventDefault(); 
+          const occasionCheckboxes = document.querySelectorAll('input[name="occasion"]');
+          const checkedOccasionCheckboxes = [...occasionCheckboxes].filter(checkbox => checkbox.checked);
+
+          const faceTypeCheckboxes = document.querySelectorAll('input[name="faceType"]');
+          const checkedFaceTypeCheckboxes = [...faceTypeCheckboxes].filter(checkbox => checkbox.checked);
+
+          if (checkedOccasionCheckboxes.length === 0) {
+            alert("Please select at least one occasion.");
+          }
+
+          if (checkedFaceTypeCheckboxes.length === 0) {
+            alert("Please select at least one face type.");
+          }
+          else{
           const formData = new FormData(form);
-          fetch('http://localhost:3001/purple/v1/jewel/', {
+          fetch('https://yts-restapi.onrender.com/purple/v1/jewel/', {
             method: 'POST',
             body: formData, 
           })
@@ -545,7 +560,9 @@
             .catch(error => {
               console.error('Error:', error);
             });
+          }
         });
+      
       });
       </script>
     <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>

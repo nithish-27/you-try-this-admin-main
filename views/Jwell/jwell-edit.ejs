@@ -363,23 +363,23 @@
                    
                     <h4 class="card-title">You can edit here</h4>
                   
-                    <form class="forms-sample" id="jewelUpdate" action="http://localhost:3001/purple/v1/jewel/<%= jwellData._id %>" method="post">
+                    <form class="forms-sample" id="jewelUpdate" action="https://yts-restapi.onrender.com/purple/v1/jewel/<%= jwellData._id %>" method="post">
                       <div class="form-group row">
                         <label for="name" class="col-sm-3 col-form-label">Title:</label>
                         <div class="col-sm-9">
-                          <input type="text" name="title" value="<%= jwellData.title %>" class="form-control" id="name" placeholder="title">
+                          <input required type="text" name="title" value="<%= jwellData.title %>" class="form-control" id="name" placeholder="title">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="description" class="col-sm-3 col-form-label">description:</label>
                         <div class="col-sm-9">
-                          <input type="text" name="description" class="form-control" value="<%= jwellData.description %>" id="description" placeholder="description">
+                          <input required type="text" name="description" class="form-control" value="<%= jwellData.description %>" id="description" placeholder="description">
                         </div>
                       </div>
                       <div class="form-group row">
                       <label class="col-sm-3 " for="dropdown">Select jwell type:</label>
                       <div class="col-sm-9">
-                      <select name="jewel_type" class="form-control dropdown-toggle" id="dropdown">
+                      <select required name="jewel_type" class="form-control dropdown-toggle" id="dropdown">
                         <option value="neckleace">neckleace</option>
                         <option value="rings">rings</option>
                         <option value="bangles">bangles</option>
@@ -393,7 +393,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 " for="dropdowng">Select gender:</label>
                         <div class="col-sm-9">
-                          <select name="gender" class="form-control dropdown-toggle" id="dropdowng">
+                          <select required name="gender" class="form-control dropdown-toggle" id="dropdowng">
                             <option value="men">Male</option>
                             <option value="women">Female</option>
                             <option value="other">Other</option>
@@ -455,27 +455,27 @@
                       <div class="form-group row">
                         <label for="amount" class="col-sm-3 col-form-label">amount:</label>
                         <div class="col-sm-9">
-                          <input type="number" name="price" value="<%= jwellData.price %>"class="form-control" id="amount" placeholder="amount">
+                          <input required type="number" name="price" value="<%= jwellData.price %>"class="form-control" id="amount" placeholder="amount">
                         </div>
                       </div>
                       
                       <div class="form-group row">
                         <label for="ratingo" class="col-sm-3 col-form-label">weight:</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="weight" value="<%= jwellData.weight %>"id="ratingo" placeholder="Mobile number">
+                          <input required type="text" class="form-control" name="weight" value="<%= jwellData.weight %>"id="ratingo" placeholder="Mobile number">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="img" class="col-sm-3 col-form-label">karat:</label>
                         <div class="col-sm-9">
-                          <input type="text" name="karat" class="form-control" value="<%= jwellData.karat %>"id="img" placeholder="url">
+                          <input required type="text" name="karat" class="form-control" value="<%= jwellData.karat %>"id="img" placeholder="url">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="img1" class="col-sm-3 col-form-label">Overlay Image:</label>
           
                           <div class="col-sm-9">
-                            <input name="overlay" type="file" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
+                            <input required name="overlay" type="file" class="form-control-file" id="imageUpload" accept="image/*" onchange="updateImagePreview(this)">
                             <img src="<%= jwellData.overlay %>" id="imagePreview" class="img-fluid mt-3">
                         </div>
                         
@@ -484,11 +484,11 @@
                       <div class="form-group row">
                         <label for="img2" class="col-sm-3 col-form-label">Images:</label>
                         <div class="col-sm-9">
-                          <input type="file" name="image" id="imageInput" class="form-control-file" accept="image/*" multiple>
+                          <input required type="file" name="image" id="imageInput" class="form-control-file" accept="image/*" multiple>
                                                     <div class="preview-container"></div>
                           <% jwellData.image.forEach(function(item) { %>
                             <div class="image-container" data-image-url="<%= item %>" data-jewelry-id="<%= jwellData._id %>">
-                              <img src="<%= item %>" class="img-fluid mt-3">
+                              <img src="<%= item %>" id="images class="img-fluid mt-3">
                               <i class="fa fa-trash delete-icon" onclick="deleteImage(this)"></i>
                             </div>
                             
@@ -516,7 +516,7 @@
     <!-- plugins:js -->
     <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
     
-
+ 
     <script>
        
       document.addEventListener('DOMContentLoaded', function () {
@@ -525,10 +525,26 @@
         form.addEventListener('submit', function (event) {
           event.preventDefault();
 
+          const occasionCheckboxes = document.querySelectorAll('input[name="occasion"]');
+          const checkedOccasionCheckboxes = [...occasionCheckboxes].filter(checkbox => checkbox.checked);
 
+          const faceTypeCheckboxes = document.querySelectorAll('input[name="faceType"]');
+          const checkedFaceTypeCheckboxes = [...faceTypeCheckboxes].filter(checkbox => checkbox.checked);
+
+          if (checkedOccasionCheckboxes.length === 0) {
+            alert("Please select at least one occasion.");
+          }
+
+          if (checkedFaceTypeCheckboxes.length === 0) {
+            alert("Please select at least one face type.");
+          }
+          // const imageInput = document.getElementById('imageUpload');
+          // if (imageInput.files.length === 0) {
+          //   formData.delete('image');
+          // }
+          else{
           const formData = new FormData(form);
           console.log(formData);
-          // const imageInput = document.getElementById('imageUpload');
 
           const pImageURL = '<%= JSON.stringify(jwellData.overlay) %>';
           const unescapedImageurl = pImageURL
@@ -536,7 +552,7 @@
             .replace(/&#34;$/, '');
           formData.append('imageurl', unescapedImageurl);
           console.log(unescapedImageurl)
-          fetch('http://localhost:3001/purple/v1/jewel/<%= jwellData._id %>', {
+          fetch('https://yts-restapi.onrender.com/purple/v1/jewel/<%= jwellData._id %>', {
             method: 'PATCH',
             body: formData,
           })
@@ -558,28 +574,24 @@
           successMessage.classList.remove('alert-success'); // Remove the old class
           successMessage.classList.add('alert-danger');
             });
+          }
         });
       });
     </script>
 
-    <script>// Initialize an array to store image URLs
+    <script>
      function deleteImage(deleteButton) {
   var imageContainer = deleteButton.parentNode;
-  var imageUrl = imageContainer.getAttribute('data-image-url'); // Get the image URL from the data attribute
+  var imageUrl = imageContainer.getAttribute('data-image-url'); 
   var jewelryId = imageContainer.getAttribute('data-jewelry-id');
-  // var image = imageContainer.querySelector('img');
-  // var imageUrl = image.getAttribute('src');
+
   imageContainer.remove();
 console.log(jewelryId)
-  // const formData = new FormData();
-  // formData.append('imageUrl', imageUrl);
-  // formData.append('jewelryId', jewelryId);
-  const myObject = {}; // Create an empty object
 
-myObject["imageUrl"] = `${imageUrl}`; // Add a "name" property
+  const myObject = {}; 
+myObject["imageUrl"] = `${imageUrl}`;
 myObject["jewelryId"] = `${jewelryId}`; 
-  // Make an AJAX request to the server to delete the image
-  fetch(`http://localhost:3001/purple/v1/jewel/`, {
+  fetch(`https://yts-restapi.onrender.com/purple/v1/jewel/`, {
     method: 'PATCH',
     body: JSON.stringify(myObject),
   headers: {
@@ -626,6 +638,39 @@ myObject["jewelryId"] = `${jewelryId}`;
           event.preventDefault();
       });
   });
+  </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function () {
+  const imagePreview = document.getElementById('imagePreview');
+  const overlayImageInput = document.getElementById('imageUpload');
+  const imageInput = document.getElementById('imageInput');
+  const images = document.querySelectorAll('.image-container img'); // Select all images
+
+  function updateRequiredAttribute() {
+    if (imagePreview.src && imagePreview.src.length > 0) {
+      overlayImageInput.removeAttribute('required');
+      imageInput.removeAttribute('required');
+    } else if (images.length > 0 && images[0].src && images[0].src.length > 0) {
+      overlayImageInput.removeAttribute('required');
+      imageInput.removeAttribute('required');
+    } else {
+      overlayImageInput.setAttribute('required', 'required');
+      imageInput.setAttribute('required', 'required');
+    }
+  }
+
+  // Call the function initially
+  updateRequiredAttribute();
+
+  // Add an event listener for changes in image sources
+  imagePreview.addEventListener('load', updateRequiredAttribute);
+
+  // Add an event listener for changes in images within .image-container
+  images.forEach(image => {
+    image.addEventListener('load', updateRequiredAttribute);
+  });
+});
+
   </script>
     <script>
       var selectedValues = [];
