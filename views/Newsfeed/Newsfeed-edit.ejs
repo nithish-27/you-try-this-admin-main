@@ -44,7 +44,7 @@
                 <div class="input-group-prepend bg-transparent">
                   <i class="input-group-text border-0 mdi mdi-magnify"></i>
                 </div>
-                <input
+                <input 
                   type="text"
                   class="form-control bg-transparent border-0"
                   placeholder="Search projects"
@@ -350,31 +350,37 @@
                     <div class="form-group row">
                       <label for="title" class="col-sm-3 col-form-label">Title:</label>
                       <div class="col-sm-9">
-                        <input type="text" value="<%= newsfeedDatadetails.title %>" name="title"
+                        <input required type="text" value="<%= newsfeedDatadetails.title %>" name="title"
                           class="form-control" placeholder="Title">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="description" class="col-sm-3 col-form-label">Description:</label>
                       <div class="col-sm-9">
-                        <input type="text" value="<%= newsfeedDatadetails.description %>" name="description"
+                        <input required type="text" value="<%= newsfeedDatadetails.description %>" name="description"
                           class="form-control" placeholder="Description">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="description" class="col-sm-3 col-form-label">Likes:</label>
                       <div class="col-sm-9">
-                        <input type="number" value="<%= newsfeedDatadetails.likes %>" name="likes"
+                        <input required type="number" value="<%= newsfeedDatadetails.likes %>" name="likes"
                           class="form-control" placeholder="likes">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="img" class="col-sm-3 col-form-label">Image:</label>
                       <div class="col-sm-9">
-                        <input type="file" name="img" id="imageUpload" class="form-control-file" accept="image/*"
+                        <input required type="file" name="img" id="imageUpload" class="form-control-file" accept="image/*"
                           onchange="updateImagePreview(this)">
                         <img src="" id="imagePreview" class="img-fluid mt-3">
+                        <img src="<%= newsfeedDatadetails.img %>" id="images" class="img-fluid mt-3">
                       </div>
+                    
+                        
+                        
+                        
+                     
                     </div>
                     <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
                     <button type="reset" class="btn btn-light">Cancel</button>
@@ -392,6 +398,27 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
+    <script>
+      function updateImagePreview(input) {
+        var imagePreview = document.getElementById("imagePreview");
+        var images = document.getElementById("images");
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+            if (imagePreview.src) {
+              images.remove();
+            }
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      
+      document.getElementById("imageUpload").addEventListener("click", function () {
+        this.value = null;
+      });
+
+    </script>
     <!-- endinject -->
     <script>
        
@@ -436,29 +463,27 @@
         });
       });
     </script>
-    <script>
-      function updateImagePreview(input) {
-        var imagePreview = document.getElementById("imagePreview");
-        
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                imagePreview.src = e.target.result;
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-    document.getElementById("imageUpload").addEventListener("click", function () {
-        // When the input is clicked, reset it to allow selecting the same file again
-        this.value = null;
-    });
-    
-    
-    
-    
-    
-    </script>
+  
+     <script>
+      document.addEventListener('DOMContentLoaded', function () {
+     const imagePreview = document.getElementById('imagePreview');
+     const ImageInput = document.getElementById('imageUpload');
+  
+   
+     function updateRequiredAttribute() {
+       if (imagePreview.src && imagePreview.src.length > 0) {
+         ImageInput.removeAttribute('required');
+       
+       } else {
+         ImageInput.setAttribute('required', 'required');
+         
+       }
+     }
+     updateRequiredAttribute();   
+     imagePreview.addEventListener('load', updateRequiredAttribute);
+   });
+   
+     </script>
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->

@@ -267,23 +267,24 @@
                     <div class="form-group row">
                       <label for="title" class="col-sm-3 col-form-label">Title:</label>
                       <div class="col-sm-9">
-                        <input type="text" value="<%= bannerDatadetails.Banner_Heading %>" name="Banner_Heading"
+                        <input required type="text" value="<%= bannerDatadetails.Banner_Heading %>" name="Banner_Heading"
                           class="form-control" placeholder="Title">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="description" class="col-sm-3 col-form-label">Description:</label>
                       <div class="col-sm-9">
-                        <input type="text" value="<%= bannerDatadetails.Banner_Description %>" name="Banner_Description"
+                        <input required type="text" value="<%= bannerDatadetails.Banner_Description %>" name="Banner_Description"
                           class="form-control" placeholder="Description">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="img" class="col-sm-3 col-form-label">Image:</label>
                       <div class="col-sm-9">
-                        <input type="file" name="img" id="imageUpload" class="form-control-file" accept="image/*"
-                          onchange="updateImagePreview(this)">
+                        <input required type="file" name="img" id="imageUpload" class="form-control-file" accept="image/*"
+                          onchange="updateImagePreview(this)" >
                         <img src="" id="imagePreview" class="img-fluid mt-3">
+                        <img src="<%= bannerDatadetails.img %>" id="images" class="img-fluid mt-3">
                       </div>
                     </div>
                     <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
@@ -347,6 +348,29 @@
           });
         });
       </script>
+      <script>
+        function updateImagePreview(input) {
+          var imagePreview = document.getElementById("imagePreview");
+          var images = document.getElementById("images");
+      
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              imagePreview.src = e.target.result;
+      
+              // Check if imagePreview has a src, and if so, remove the "images" img element
+              if (imagePreview.src) {
+                images.remove();
+              }
+            };
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+      
+        document.getElementById("imageUpload").addEventListener("click", function () {
+          this.value = null;
+        });
+      </script>
       <!-- <script>
       document.addEventListener('DOMContentLoaded', function () {
         const form = document.querySelector('.forms-sample');
@@ -389,29 +413,29 @@ console.log(formData);
 });
 
     </script> -->
-      <script>
-        function updateImagePreview(input) {
-          var imagePreview = document.getElementById("imagePreview");
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+     const imagePreview = document.getElementById('imagePreview');
+     const ImageInput = document.getElementById('imageUpload');
+  
+   
+     function updateRequiredAttribute() {
+       if (imagePreview.src && imagePreview.src.length > 0) {
+         ImageInput.removeAttribute('required');
+       
+       } else {
+         ImageInput.setAttribute('required', 'required');
+         
+       }
+     }
+     updateRequiredAttribute();   
+     imagePreview.addEventListener('load', updateRequiredAttribute);
+   });
+   
+     </script>
+    
 
-          if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-              imagePreview.src = e.target.result;
-            };
-            reader.readAsDataURL(input.files[0]);
-          }
-        }
-
-        document.getElementById("imageUpload").addEventListener("click", function () {
-          // When the input is clicked, reset it to allow selecting the same file again
-          this.value = null;
-        });
-
-
-
-
-
-      </script>
+    
       <script src=" /assets/vendors/js/vendor.bundle.base.js"></script>
       <!-- endinject -->
       <!-- Plugin js for this page -->
