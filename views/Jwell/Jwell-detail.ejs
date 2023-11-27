@@ -23,7 +23,48 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-   
+    <style>
+      .modal {
+        display: none; /* Hide the modal by default */
+        
+        position: fixed;
+        z-index: 1;
+        left: 0;
+      
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        display: flex;
+       align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+      
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        margin-top: 50px;
+        max-width: 800px;
+        max-height: 80%;
+        align-self: center;
+      }
+      
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #f00;
+      }
+      </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -31,6 +72,7 @@
   <link rel="stylesheet" href=" /assets/css/style.css" />
     <!-- End layout styles -->
     <link rel="shortcut icon" href=" /assets/images/favicon.ico" />
+ 
   </head>
   <body>
     <div class="container-scroller">
@@ -351,7 +393,12 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Banners</h4>
+                    <div id="myModal" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img01">
+                    </div>
                     <div class="table-responsive">
+
                       <table class="table table-bordered table-hover">
                         <thead class="table-dark">
                           <tr>
@@ -369,12 +416,13 @@
                               <td><%= index + 1 %></td>
                               <td><%= jewelry.title %></td>
                               <td>₹ <%= jewelry.price %></td>
+                             
                               <td>
-                                <img src="<%= jewelry.overlay %>" alt="<%= jewelry.title %>" width="100"></td>
+                                <img class="zoom-img" src="<%= jewelry.overlay %>" alt="<%= jewelry.title %>" width="100"></td>
 
                               <td>
                                 <% jewelry.image.forEach(imageUrl => { %>
-                                  <img src="<%= imageUrl %>" alt="<%= jewelry.title %>" width="100">
+                                  <img class="zoom-img" src="<%= imageUrl %>" alt="<%= jewelry.title %>" width="100">
                                 <% }); %>
                               </td>
                               <td>  
@@ -472,6 +520,27 @@
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->
+    <script>
+      // JavaScript for modal functionality
+const modal = document.getElementById('myModal');
+const img = document.getElementsByClassName('zoom-img');
+const modalImg = document.getElementById('img01');
+const close = document.getElementsByClassName('close')[0];
+
+// Loop through each image and add click event listeners
+for (let i = 0; i < img.length; i++) {
+  img[i].addEventListener('click', function() {
+    modal.style.display = 'block'; // Display the modal
+    modalImg.src = this.src; // Set clicked image to modal
+  });
+}
+
+// Close the modal when the close icon is clicked
+close.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
+</script>
     <script>
       function deleteJewell(jewellId) {
         if (confirm(`Are you sure you want to delete this item? ${jewellId}`)) {

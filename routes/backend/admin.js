@@ -36,9 +36,11 @@ async function fetchCountsFromExternalAPI() {
   }
 }
 router.get("/", async (req, res) => {
+  const user = req.user[0];
+  console.log(user.username);
   const counts = await fetchCountsFromExternalAPI();
 
-  res.render("../views/index", { counts });
+  res.render("../views/index", { counts, user });
 });
 
 module.exports = router;
